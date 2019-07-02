@@ -1,0 +1,35 @@
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark  fixed-top mybg-dark navbar-shrink">
+  <div class="container">
+      <a class="navbar-brand" href="index.html">Restro</a>
+      <button 
+        class="navbar-toggler navbar-toggler-right" 
+        type="button" 
+        (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive" [ngClass]="{ 'show': _navbarOpen }">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Pizza</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Appetizrs</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Soup</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Shushi rolls</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Spaghetti</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Pasta</a>
+              </li>
+
+          </ul>
+      </div>
+  </div>
+</nav>

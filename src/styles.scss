@@ -1,1 +1,612 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Indie Flower', cursive;
+    font-size: 100%;
+}
+
+
+/*---navbar---*/
+
+.navbar {
+    background: transparent;
+}
+.navbar-shrink{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.navbar-brand {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+
+
+.navbar a:not(.navbar-brand) {
+    font-weight: bolder;
+    font-size: 1.4em;
+    color: #ffffff !important;
+}
+.navbar a:not(.navbar-brand):hover{
+	color:red !important;
+}
+
+header.masthead {
+    position: relative;
+    background-color: #343a40;
+    height: 100vh;
+    background: url(https://images.pexels.com/photos/821054/pexels-photo-821054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+header.masthead .overlay {
+    position: absolute;
+    background-color: #212529;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: .3
+}
+
+header.masthead h1 {
+    font-size: 2rem
+}
+
+@media (min-width:768px) {
+    header.masthead {
+        padding-top: 12rem;
+        padding-bottom: 12rem
+    }
+    header.masthead h1 {
+        font-size: 4rem;
+        font-weight:bold;
+    }
+}
+
+.my-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.form-row>.col,
+.form-row>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+/*---gallery---*/
+
+#photos {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#photos img {
+    width: 100%;
+    height: 15em;
+    border-radius: 0.8em;
+    transition: transform 2s ease-in-out;
+}
+
+#photos img:hover {
+    opacity: 0.8;
+    transform: scale(1.15);
+}
+
+#photos h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top: 0.15em solid black;
+    border-bottom: 0.15em solid black;
+    color: red;
+    display: none;
+}
+
+#photos .col-lg-4:hover h2 {
+    display: block;
+}
+
+.portfolio-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+img.img-fluid.rounded-circle.mb-3 {
+    height: 192px;
+    width: 192px;
+    object-fit: cover;
+}
+.featherlight .featherlight-image{
+    width:600px;
+    height:400px;
+}
+
+/*-----parallax-----*/
+
+.mybg {
+    position: relative;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.7686274509803922), rgba(255, 255, 255, 0.7686274509803922)), url(https://images.pexels.com/photos/5317/food-salad-restaurant-person.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.call-to-action {
+    position: relative;
+    background-color: #1c1c1c;
+    padding-top: 7rem;
+    padding-bottom: 7rem
+}
+
+.call-to-action .overlay {
+    position: absolute;
+    background-color: #212529;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: .3
+}
+
+footer.footer {
+    padding-top: 4rem;
+    padding-bottom: 4rem
+}
+
+.myhr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.myform {
+    border-radius: 0px !important;
+}
+
+.mybtn {
+    border-radius: 0px !important;
+}
+
+.txt-upper {
+    text-transform: uppercase;
+}
+
+.mybg-dark {
+    background: #000000 !important;
+}
+
+.order-now a {
+    background: #fff;
+    border: 3px solid black;
+    padding: 6px 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0056b3;
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+.order-now a:hover {
+    background: red;
+    color:#fff;
+    opacity: 1;
+}
+
+.myfont-color {
+    color: #979797 !important;
+}
+
+
+/*----testimonials----*/
+
+.testimonials {
+    padding-top: 7rem;
+    padding-bottom: 7rem
+}
+
+.testimonials .testimonial-item {
+    max-width: 18rem
+}
+
+.testimonials .testimonial-item img {
+    max-width: 12rem;
+    box-shadow: 0 5px 5px 0 #adb5bd
+}
+
+
+/* Footer */
+
+section {
+    padding: 60px 0 18px;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#footer {
+    background: #232323 !important;
+}
+
+#footer h5 {
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+#footer ul.social li {
+    padding: 3px 0;
+}
+
+#footer ul.social li a i {
+    margin-right: 5px;
+    font-size: 25px;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.social li:hover a i {
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+#footer ul.social li a,
+#footer ul.quick-links li a {
+    color: #979797;
+}
+
+#footer ul.quick-links li a:hover {
+    color: #fff;
+}
+
+#footer ul.social li a:hover {
+    color: #eeeeee;
+}
+
+#footer ul.quick-links li {
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.quick-links li:hover {
+    padding: 3px 0;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
+}
+
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px) {
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+
+/*-----scroll-top-----*/
+
+.scroll-top-wrapper {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    text-align: center;
+    z-index: 99999999;
+    background-color: #777777;
+    color: #eeeeee;
+    width: 50px;
+    height: 48px;
+    line-height: 48px;
+    right: 30px;
+    bottom: 30px;
+    padding-top: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.scroll-top-wrapper:hover {
+    background-color: #888888;
+}
+
+.scroll-top-wrapper.show {
+    visibility: visible;
+    cursor: pointer;
+    opacity: 1.0;
+}
+
+.scroll-top-wrapper i.fa {
+    line-height: inherit;
+}
+
+.about {
+  background-image: url(https://bytebucket.org/consatanos/pen-picture/raw/3c0be7f1f1ea380d9165eb09d5c0f1ec921448f2/f-r/img/about-banner-bg.jpg)
+}
+
+.about .wrapper {
+  margin: 0 auto;
+  padding-top: 100px;
+  color: #2b2b2b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 200px
+}
+
+@media (min-width:1024px) {
+  .about .wrapper {
+    width: 100%
+  }
+}
+
+@media (min-width:800px) and (max-width:1023px) {
+  .about .wrapper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px
+  }
+}
+
+@media (max-width:799px) {
+  .about .wrapper {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px
+  }
+  .about .wrapper section:nth-of-type(1) {
+    display: none
+  }
+}
+
+.about .wrapper section:nth-of-type(1) {
+  position: relative;
+  width: 35%
+}
+
+.experience .wrapper section,
+.recipes .wrapper section div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox
+}
+
+.about .wrapper section:nth-of-type(1) img {
+  position: absolute;
+  width: 350px;
+  height: 290px;
+  border: 5px solid #fff
+}
+
+@media (min-width:800px) and (max-width:1023px) {
+  .about .wrapper section:nth-of-type(1) img {
+    width: 300px;
+    height: 250px
+  }
+}
+
+.about .wrapper section:nth-of-type(1) img:nth-of-type(1) {
+  margin-top: 30px;
+  margin-left: 25px;
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg)
+}
+
+.about .wrapper section:nth-of-type(1) img:nth-of-type(2) {
+  margin-top: 20px;
+  margin-left: 45px
+}
+
+.about .wrapper section:nth-of-type(2) {
+  width: 58%
+}
+
+@media (max-width:799px) {
+  .about .wrapper section:nth-of-type(2) {
+    width: 90%;
+    margin: 0 auto
+  }
+}
+
+.about .wrapper section:nth-of-type(2) h4 {
+  margin: 0;
+  font-family: Pacifico, cursive;
+  font-size: 2.1em;
+  font-weight: 300;
+  color: #2b2b2b;
+  text-align: left
+}
+
+.about .wrapper section:nth-of-type(2) button,
+.about .wrapper section:nth-of-type(2) h3,
+.recipes .wrapper {
+  font-family: "Times New Roman", Times, Baskerville, Georgia, serif
+}
+
+.about .wrapper section:nth-of-type(2) h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  font-weight: 500;
+  color: #2b2b2b;
+  text-align: left
+}
+
+.about .wrapper section:nth-of-type(2) button {
+  width: 150px;
+  height: 45px;
+  background-color: #e7a331;
+  border: none;
+  border-radius: 5px;
+  color: #fff
+}
+
+.recipes {
+  background-image: url(https://bytebucket.org/consatanos/pen-picture/raw/3c0be7f1f1ea380d9165eb09d5c0f1ec921448f2/f-r/img/recipies-banner-bg.jpg)
+}
+
+.recipes .wrapper {
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  color: #2b2b2b
+}
+
+@media (min-width:1024px) {
+  .recipes .wrapper {
+    width: 100%
+  }
+}
+
+@media (min-width:800px) and (max-width:1023px) {
+  .recipes .wrapper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px
+  }
+}
+
+.recipes .wrapper section {
+  position: relative;
+  height: 560px
+}
+
+@media (min-width:800px) and (max-width:1023px) {
+  .recipes .wrapper section {
+    height: auto
+  }
+}
+
+@media (max-width:799px) {
+  .recipes .wrapper {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px
+  }
+  .recipes .wrapper section {
+    height: auto
+  }
+}
+
+.recipes .wrapper section div {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  width: 36%;
+  height: 80%;
+  top: 10%;
+  padding: 0 5%;
+  background-color: #fff
+}
+
+@media (min-width:800px) and (max-width:1023px) {
+  .recipes .wrapper section div {
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 2% 5% 4%
+  }
+  .recipes .wrapper section img {
+    display: none
+  }
+}
+
+@media (max-width:799px) {
+  .recipes .wrapper section div {
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 2% 5% 4%
+  }
+  .recipes .wrapper section img {
+    display: none
+  }
+}
+
+.recipes .wrapper section div h4 {
+  margin: 0;
+  font-family: Pacifico, cursive;
+  font-size: 2.1em;
+  font-weight: 300;
+  color: #2b2b2b;
+  text-align: left
+}
+
+.experience .wrapper,
+.experience .wrapper h3,
+.recipes .wrapper section div button,
+.recipes .wrapper section div h3 {
+  font-family: "Times New Roman", Times, Baskerville, Georgia, serif
+}
+
+.recipes .wrapper section div h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  font-weight: 500;
+  color: #2b2b2b;
+  text-align: left
+}
+
+.recipes .wrapper section div button {
+  width: 150px;
+  height: 45px;
+  background-color: #e7a331;
+  border: none;
+  border-radius: 5px;
+  color: #fff
+}
+
+.recipes .wrapper section img {
+  position: absolute;
+  right: 0;
+  width: 58%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}

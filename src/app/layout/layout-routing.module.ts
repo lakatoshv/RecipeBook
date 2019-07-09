@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { HomeComponent } from '../default-pages/home/home.component';
+import { ContactsComponent } from '../default-pages/contacts/contacts.component';
+import { GalleryComponent } from '../default-pages/gallery/gallery.component';
+import { AboutComponent } from '../default-pages/about/about.component';
 
 const routes: Routes = [
   {
     path: "",
     component: LayoutComponent,
-    /*
     children: [
       {
         path: "",
-        loadChildren: '../shared/posts/posts.module#PostsModule'
+        component: HomeComponent
       },
       {
         path: "about",
@@ -21,6 +24,11 @@ const routes: Routes = [
         component: ContactsComponent
       },
       {
+        path: "gallery",
+        component: GalleryComponent
+      }
+      /*
+      {
         path: "registration",
         component: RegistrationComponent
       },
@@ -28,7 +36,8 @@ const routes: Routes = [
         path: "authorization",
         component: AuthorizationComponent
       }
-    ]*/
+      */
+    ]
   }
 ];
 

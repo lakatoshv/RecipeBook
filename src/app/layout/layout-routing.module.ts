@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path: "gallery",
         component: GalleryComponent
+      },
+      {
+        path: "dishes",
+        loadChildren: '../dishes/dishes.module#DishesModule'
       }
       /*
       {

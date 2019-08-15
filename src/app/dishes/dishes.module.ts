@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DishesRoutingModule } from './dishes-routing.module';
 import { DishesListComponent } from './dishes-list/dishes-list.component';
-import { MenuComponent } from '../menu/menu/menu.component';
 import { MenuModule } from '../menu/menu.module';
+import { DishComponent } from './dish/dish.component';
 
 @NgModule({
-  declarations: [DishesListComponent ],
+  declarations: [DishesListComponent, DishComponent ],
   imports: [
     CommonModule,
     DishesRoutingModule,

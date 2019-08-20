@@ -16,6 +16,22 @@
 
         <div class="col-md-7">
           <div class="product-title">{{dish?.name}}</div>
+          <div class="pull-right">
+            <a 
+              class="btn btn-sm text-white btn-primary"
+              href="#">
+                <i class="fa fa-edit"></i> 
+                Редагувати
+            </a>
+            <button
+              type="button" 
+              class="btn btn-sm text-white btn-danger"
+              (click)="deleteAction(dish?.id)">
+                <i class="fa fa-trash"></i> 
+                Видалити
+            </button>
+          </div>
+          <br>
           <div class="product-desc">{{dish?.description}}</div>
           <div class="product-rating">
             <i class="fa fa-star gold"></i> 
@@ -24,7 +40,6 @@
             <i class="fa fa-star gold"></i> 
             <i class="fa fa-star-o"></i> 
           </div>
-          <hr>
           <div class="product-price">$ {{dish?.price}}</div>
           <div class="product-stock">In Stock</div>
           <hr>

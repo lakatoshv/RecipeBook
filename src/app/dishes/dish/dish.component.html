@@ -1,229 +1,243 @@
-<div class="container-fluid">
-  <div class="content-wrapper">	
-    <div class="item-container">	
-      <div class="container">	
-        <div class="col-md-12">
-          <div class="product col-md-3 service-image-left">
-            <img id="item-display" src="{{dish?.preview" alt="">
-          </div>
-        
-          <div class="container service1-items col-sm-2 col-md-2 pull-left">
-            <a id="item-1" class="service1-item" *ngFor="let image of dish?.images; let i of index">
-              <img src="{{image}}" alt="">
-            </a>
-          </div>
-        </div>
+<div class="container-fluid" style="margin-top: 50px;">
+    <div class="wrapper row">
+        <div class="preview col-md-6">
 
-        <div class="col-md-7">
-          <div class="product-title">{{dish?.name}}</div>
-          <div class="pull-right">
-            <a 
-              class="btn btn-sm text-white btn-primary"
-              href="#">
-                <i class="fa fa-edit"></i> 
-                Редагувати
-            </a>
-            <button
-              type="button" 
-              class="btn btn-sm text-white btn-danger"
-              (click)="deleteAction(dish?.id)">
+            <div class="preview-pic tab-content">
+                <div class="tab-pane active" id="pic-1">
+                    <img src="{{dish?.preview}}" alt="" style="max-width: 540px; max-height: 340px;">
+                </div>
+            </div>
+            <ul class="preview-thumbnail nav nav-tabs">
+                <li class="active">
+                    <img src="{{dish?.preview}}" alt="" style="max-width: 100px; max-height: 65px;">
+                </li>
+                <li *ngFor="let image of dish?.images; let i of index">
+                    <a data-target="#pic-2" data-toggle="tab">
+                        <img src="{{image}}" alt="" style="max-width: 100px; max-height: 65px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="details col-md-6">
+            <h3 class="product-title">{{dish?.name}}</h3>
+            <div class="pull-right">
+                <a class="btn btn-sm text-white btn-primary" href="#">
+                    <i class="fa fa-edit"></i> Редагувати
+                </a>
+                <button type="button" class="btn btn-sm text-white btn-danger" (click)="deleteAction(dish?.id)">
                 <i class="fa fa-trash"></i> 
                 Видалити
-            </button>
-          </div>
-          <br>
-          <div class="product-desc">{{dish?.description}}</div>
-          <div class="product-rating">
-            <i class="fa fa-star gold"></i> 
-            <i class="fa fa-star gold"></i> 
-            <i class="fa fa-star gold"></i> 
-            <i class="fa fa-star gold"></i> 
-            <i class="fa fa-star-o"></i> 
-          </div>
-          <div class="product-price">$ {{dish?.price}}</div>
-          <div class="product-stock">In Stock</div>
-          <hr>
-          <div class="btn-group cart">
-            <button type="button" class="btn btn-success">
-              Add to cart 
-            </button>
-          </div>
-          <div class="btn-group wishlist">
-            <button type="button" class="btn btn-danger">
-              Add to wishlist 
-            </button>
-          </div>
-        </div>
-      </div> 
-    </div>
+              </button>
+            </div>
+            <div class="rating">
+                <div class="stars">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <span class="review-no">41 відгук</span>
+            </div>
+            <h4 class="price">Ціна: <span>${{dish?.price}}</span></h4>
+            <p class="product-desc">{{dish?.description}}</p>
 
-    <div class="container-fluid">		
-      <div class="col-md-12 product-info">
+            <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+            <h5 class="sizes">Розмір порції:
+                <span class="size" data-toggle="tooltip" title="small">мала</span>
+                <span class="size" data-toggle="tooltip" title="medium">середня</span>
+                <span class="size" data-toggle="tooltip" title="large">велика</span>
+            </h5>
+            <div class="action">
+                <hr>
+                <div class="btn-group cart">
+                    <button type="button" class="btn btn-success">
+                  Add to cart 
+                </button>
+                </div>
+                <div class="btn-group wishlist">
+                    <button type="button" class="btn btn-danger">
+                  Add to wishlist 
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col-md-12 product-info">
         <ul id="myTab" class="nav nav-tabs nav_tabs">
-          <li [ngClass]="{'active': selectedTab === 'description'}">
-            <a (click)="selectTab('description')">DESCRIPTION</a>
-          </li>
-          <li [ngClass]="{'active': selectedTab === 'reviews'}">
-            <a (click)="selectTab('reviews')">REVIEWS</a>
-          </li>
+            <li [ngClass]="{'active': selectedTab === 'description'}">
+                <a (click)="selectTab('description')">DESCRIPTION</a>
+            </li>
+            <li [ngClass]="{'active': selectedTab === 'reviews'}">
+                <a (click)="selectTab('reviews')">REVIEWS</a>
+            </li>
         </ul>
 
         <div class="tab-content">
-          <div class="tab-pane in active" *ngIf="selectedTab === 'description'">
-            <section class="container product-info">
-              {{dish?.description}}
-              <h3>Ingradients:</h3>
-              <ul>
-                <li *ngFor="let ingradient of dish?.ingradients">{{ingradient.name}}</li>
-              </ul>
-            </section>
-          </div>
+            <div class="tab-pane in active" *ngIf="selectedTab === 'description'">
+                <section class="container product-info">
+                    {{dish?.description}}
+                    <h3>Ingradients:</h3>
+                    <ul>
+                        <li *ngFor="let ingradient of dish?.ingradients">{{ingradient.name}}</li>
+                    </ul>
+                </section>
+            </div>
 
 
-          <div class="tab-pane in active" *ngIf="selectedTab === 'reviews'">
-            <section class="container product-info">
-              <div class="col-md-12">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <span itemscope itemtype="http://schema.org/Review">
-                      <h3 class="panel-title" itemprop="name">Review Title</h3>
-                    </span>
-                  </div><!--/panel-heading-->
+            <div class="tab-pane in active" *ngIf="selectedTab === 'reviews'">
+                <section class="container product-info">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span itemscope itemtype="http://schema.org/Review">
+              <h3 class="panel-title" itemprop="name">Review Title</h3>
+            </span>
+                            </div>
+                            <!--/panel-heading-->
 
-                  <div class="panel-body" itemprop="reviewBody">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, 
-                    fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
-            
-                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                      <small>
-                      <span itemprop="name">-- J. Reviewer</span>
-                      </small>
-                    </span><!--/author schema -->
-            
-                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-            
-                    <meta itemprop="datePublished" content="01-01-2016">01-01-2016
-                          
-                    <span class="pull-right">
-                      <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
-                        <meta itemprop="worstRating" content="1">
-                        <span itemprop="ratingValue">5</span> / 
-                        <span itemprop="bestRating"> stars </span>
-                      </span><!--/reviewRating-->
+                            <div class="panel-body" itemprop="reviewBody">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
 
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    </span>
-                  </div><!--/panel-body-->
-                  
-                  <div class="panel-footer clearfix">
-                    <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
-                    <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
-                    <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
-                  </div><!--/panel-footer-->
-                </div>
-              </div>
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <small>
+              <span itemprop="name">-- J. Reviewer</span>
+                                </small>
+                                </span>
+                                <!--/author schema -->
 
-              <div class="col-md-12">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <span itemscope itemtype="http://schema.org/Review">
-                      <h3 class="panel-title" itemprop="name">Review Title</h3>
-                    </span>
-                  </div><!--/panel-heading-->
-  
-                  <div class="panel-body" itemprop="reviewBody">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, 
-                    fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
-              
-                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                      <small>
-                        <span itemprop="name">-- J. Reviewer</span>
-                      </small>
-                    </span><!--/author schema -->
-              
-                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-              
-                    <meta itemprop="datePublished" content="01-01-2016">01-01-2016
-                            
-                    <span class="pull-right">
-                      <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
-                        <meta itemprop="worstRating" content="1">
-                        <span itemprop="ratingValue">5</span> / 
-                        <span itemprop="bestRating"> stars </span>
-                      </span><!--/reviewRating-->
-  
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    </span>
-                  </div><!--/panel-body-->
-                    
-                  <div class="panel-footer clearfix">
-                    <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
-                    <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
-                    <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
-                  </div><!--/panel-footer-->
-                </div>
-              </div>
-              
-              <div class="col-md-12">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <span itemscope itemtype="http://schema.org/Review">
-                      <h3 class="panel-title" itemprop="name">Review Title</h3>
-                    </span>
-                  </div><!--/panel-heading-->
-    
-                  <div class="panel-body" itemprop="reviewBody">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, 
-                    fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
-              
-                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                      <small>
-                        <span itemprop="name">-- J. Reviewer</span>
-                      </small>
-                    </span><!--/author schema -->
-                
-                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                
-                    <meta itemprop="datePublished" content="01-01-2016">01-01-2016
-                              
-                    <span class="pull-right">
-                      <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
-                        <meta itemprop="worstRating" content="1">
-                        <span itemprop="ratingValue">5</span> / 
-                        <span itemprop="bestRating"> stars </span>
-                      </span><!--/reviewRating-->
-    
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    </span>
-                  </div><!--/panel-body-->
-                      
-                  <div class="panel-footer clearfix">
-                    <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
-                    <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
-                    <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
-                  </div><!--/panel-footer-->
-                </div>
-              </div>
-            </section>
-          </div>
+                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+
+                                <meta itemprop="datePublished" content="01-01-2016">01-01-2016
+
+                                <span class="pull-right">
+              <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                <meta itemprop="worstRating" content="1">
+                <span itemprop="ratingValue">5</span> /
+                                <span itemprop="bestRating"> stars </span>
+                                </span>
+                                <!--/reviewRating-->
+
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <!--/panel-body-->
+
+                            <div class="panel-footer clearfix">
+                                <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+                                <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+                                <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+                            </div>
+                            <!--/panel-footer-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span itemscope itemtype="http://schema.org/Review">
+              <h3 class="panel-title" itemprop="name">Review Title</h3>
+            </span>
+                            </div>
+                            <!--/panel-heading-->
+
+                            <div class="panel-body" itemprop="reviewBody">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
+
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <small>
+                <span itemprop="name">-- J. Reviewer</span>
+                                </small>
+                                </span>
+                                <!--/author schema -->
+
+                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+
+                                <meta itemprop="datePublished" content="01-01-2016">01-01-2016
+
+                                <span class="pull-right">
+              <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                <meta itemprop="worstRating" content="1">
+                <span itemprop="ratingValue">5</span> /
+                                <span itemprop="bestRating"> stars </span>
+                                </span>
+                                <!--/reviewRating-->
+
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <!--/panel-body-->
+
+                            <div class="panel-footer clearfix">
+                                <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+                                <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+                                <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+                            </div>
+                            <!--/panel-footer-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span itemscope itemtype="http://schema.org/Review">
+              <h3 class="panel-title" itemprop="name">Review Title</h3>
+            </span>
+                            </div>
+                            <!--/panel-heading-->
+
+                            <div class="panel-body" itemprop="reviewBody">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quaerat aperiam unde nemo suscipit id repellendus ad doloribus quae, fugiat quia rem molestias sequi, amet nisi qui cumque iusto earum!</p>
+
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <small>
+                <span itemprop="name">-- J. Reviewer</span>
+                                </small>
+                                </span>
+                                <!--/author schema -->
+
+                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+
+                                <meta itemprop="datePublished" content="01-01-2016">01-01-2016
+
+                                <span class="pull-right">
+              <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                <meta itemprop="worstRating" content="1">
+                <span itemprop="ratingValue">5</span> /
+                                <span itemprop="bestRating"> stars </span>
+                                </span>
+                                <!--/reviewRating-->
+
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <!--/panel-body-->
+
+                            <div class="panel-footer clearfix">
+                                <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+                                <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+                                <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div>
+                            </div>
+                            <!--/panel-footer-->
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
         <hr>
-      </div>
     </div>
-  </div>
 </div>

@@ -1,3 +1,4 @@
+import { ReviewsModule } from './../reviews/reviews.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
@@ -15,13 +16,13 @@ import { MenuModule } from '../menu/menu.module';
     GalleryComponent, 
     ContactsComponent,
     SpecialRecipesComponent,
-    ReviewsListComponent,
     AboutComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MenuModule
+    MenuModule,
+    ReviewsModule
   ],
   exports: []
 })

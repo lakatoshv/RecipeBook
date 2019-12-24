@@ -7,16 +7,19 @@ import { DishComponent } from './dish/dish.component';
 import { AddDishComponent } from './add-dish/add-dish.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { DishDescriptionComponent } from './dish-description/dish-description.component';
+import { ReviewsModule } from '../reviews/reviews.module';
 
 
 @NgModule({
-  declarations: [DishesListComponent, DishComponent, AddDishComponent ],
+  declarations: [DishesListComponent, DishComponent, AddDishComponent, DishDescriptionComponent ],
   imports: [
     CommonModule,
     DishesRoutingModule,
     MenuModule,
     ReactiveFormsModule,
-    EditorModule
+    EditorModule,
+    ReviewsModule
   ]
 })
 export class DishesModule { }

@@ -10,17 +10,17 @@ const routes: Routes = [
     component: DishesListComponent
   },
   {
+    path: "add",
+    component: AddDishComponent
+  },
+  {
     path: ":id",
     component: DishComponent
   },
   {
     path: ":type/:id",
     component: DishComponent
-  },
-  {
-    path: "add",
-    component: AddDishComponent
-  },
+  }
 
 ];
 

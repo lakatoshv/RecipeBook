@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EditorModule
+    EditorModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

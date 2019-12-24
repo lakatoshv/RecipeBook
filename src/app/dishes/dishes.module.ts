@@ -5,10 +5,11 @@ import { DishesListComponent } from './dishes-list/dishes-list.component';
 import { MenuModule } from '../menu/menu.module';
 import { DishComponent } from './dish/dish.component';
 import { AddDishComponent } from './add-dish/add-dish.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { DishDescriptionComponent } from './dish-description/dish-description.component';
 import { ReviewsModule } from '../reviews/reviews.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { ReviewsModule } from '../reviews/reviews.module';
     MenuModule,
     ReactiveFormsModule,
     EditorModule,
-    ReviewsModule
+    ReviewsModule,
+    NgSelectModule,
+    FormsModule
   ]
 })
 export class DishesModule { }

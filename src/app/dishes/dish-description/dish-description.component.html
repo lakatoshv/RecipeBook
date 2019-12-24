@@ -1,0 +1,7 @@
+<section class="container product-info">
+    {{dish?.description}}
+    <h3>Інградієнти:</h3>
+    <ul>
+        <li *ngFor="let ingradient of dish?.ingradients">{{ingradient.name}}</li>
+    </ul>
+</section>

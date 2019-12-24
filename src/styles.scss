@@ -1,3 +1,4 @@
+@import "~@ng-select/ng-select/themes/material.theme.css";
 body {
     font-family: 'Indie Flower', cursive;
     font-size: 100%;
@@ -9,24 +10,25 @@ body {
 .navbar {
     background: transparent;
 }
-.navbar-shrink{
+
+.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
 }
+
 .navbar-brand {
     font-size: 2em;
     font-weight: bolder;
 }
-
-
 
 .navbar a:not(.navbar-brand) {
     font-weight: bolder;
     font-size: 1.4em;
     color: #ffffff !important;
 }
-.navbar a:not(.navbar-brand):hover{
-	color:red !important;
+
+.navbar a:not(.navbar-brand):hover {
+    color: red !important;
 }
 
 header.masthead {
@@ -63,7 +65,7 @@ header.masthead h1 {
     }
     header.masthead h1 {
         font-size: 4rem;
-        font-weight:bold;
+        font-weight: bold;
     }
 }
 
@@ -81,24 +83,24 @@ header.masthead h1 {
 
 /*---gallery---*/
 
-#photos {
+.photos {
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
 
-#photos img {
+.photos img {
     width: 100%;
     height: 15em;
     border-radius: 0.8em;
     transition: transform 2s ease-in-out;
 }
 
-#photos img:hover {
+.photos img:hover {
     opacity: 0.8;
     transform: scale(1.15);
 }
 
-#photos h2 {
+.photos h2 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -109,7 +111,7 @@ header.masthead h1 {
     display: none;
 }
 
-#photos .col-lg-4:hover h2 {
+.photos .col-lg-4:hover h2 {
     display: block;
 }
 
@@ -123,10 +125,12 @@ img.img-fluid.rounded-circle.mb-3 {
     width: 192px;
     object-fit: cover;
 }
-.featherlight .featherlight-image{
-    width:600px;
-    height:400px;
+
+.featherlight .featherlight-image {
+    width: 600px;
+    height: 400px;
 }
+
 
 /*-----parallax-----*/
 
@@ -191,7 +195,7 @@ footer.footer {
 
 .order-now a:hover {
     background: red;
-    color:#fff;
+    color: #fff;
     opacity: 1;
 }
 
@@ -353,260 +357,260 @@ section .section-title {
 }
 
 .about {
-  background-image: url(https://bytebucket.org/consatanos/pen-picture/raw/3c0be7f1f1ea380d9165eb09d5c0f1ec921448f2/f-r/img/about-banner-bg.jpg)
+    background-image: url(https://bytebucket.org/consatanos/pen-picture/raw/3c0be7f1f1ea380d9165eb09d5c0f1ec921448f2/f-r/img/about-banner-bg.jpg)
 }
 
 .about .wrapper {
-  margin: 0 auto;
-  padding-top: 100px;
-  color: #2b2b2b;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-bottom: 200px
+    margin: 0 auto;
+    padding-top: 100px;
+    color: #2b2b2b;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 200px
 }
 
 @media (min-width:1024px) {
-  .about .wrapper {
-    width: 100%
-  }
+    .about .wrapper {
+        width: 100%
+    }
 }
 
 @media (min-width:800px) and (max-width:1023px) {
-  .about .wrapper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px
-  }
+    .about .wrapper {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px
+    }
 }
 
 @media (max-width:799px) {
-  .about .wrapper {
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px
-  }
-  .about .wrapper section:nth-of-type(1) {
-    display: none
-  }
+    .about .wrapper {
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px
+    }
+    .about .wrapper section:nth-of-type(1) {
+        display: none
+    }
 }
 
 .about .wrapper section:nth-of-type(1) {
-  position: relative;
-  width: 35%
+    position: relative;
+    width: 35%
 }
 
 .experience .wrapper section,
 .recipes .wrapper section div {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox
 }
 
 .about .wrapper section:nth-of-type(1) img {
-  position: absolute;
-  width: 350px;
-  height: 290px;
-  border: 5px solid #fff
+    position: absolute;
+    width: 350px;
+    height: 290px;
+    border: 5px solid #fff
 }
 
 @media (min-width:800px) and (max-width:1023px) {
-  .about .wrapper section:nth-of-type(1) img {
-    width: 300px;
-    height: 250px
-  }
+    .about .wrapper section:nth-of-type(1) img {
+        width: 300px;
+        height: 250px
+    }
 }
 
 .about .wrapper section:nth-of-type(1) img:nth-of-type(1) {
-  margin-top: 30px;
-  margin-left: 25px;
-  -webkit-transform: rotate(-10deg);
-  transform: rotate(-10deg)
+    margin-top: 30px;
+    margin-left: 25px;
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg)
 }
 
 .about .wrapper section:nth-of-type(1) img:nth-of-type(2) {
-  margin-top: 20px;
-  margin-left: 45px
+    margin-top: 20px;
+    margin-left: 45px
 }
 
 .about .wrapper section:nth-of-type(2) {
-  width: 58%
+    width: 58%
 }
 
 @media (max-width:799px) {
-  .about .wrapper section:nth-of-type(2) {
-    width: 90%;
-    margin: 0 auto
-  }
+    .about .wrapper section:nth-of-type(2) {
+        width: 90%;
+        margin: 0 auto
+    }
 }
 
 .about .wrapper section:nth-of-type(2) h4 {
-  margin: 0;
-  font-family: Pacifico, cursive;
-  font-size: 2.1em;
-  font-weight: 300;
-  color: #2b2b2b;
-  text-align: left
+    margin: 0;
+    font-family: Pacifico, cursive;
+    font-size: 2.1em;
+    font-weight: 300;
+    color: #2b2b2b;
+    text-align: left
 }
 
 .about .wrapper section:nth-of-type(2) button,
 .about .wrapper section:nth-of-type(2) h3,
 .recipes .wrapper {
-  font-family: "Times New Roman", Times, Baskerville, Georgia, serif
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif
 }
 
 .about .wrapper section:nth-of-type(2) h3 {
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 2.5em;
-  font-weight: 500;
-  color: #2b2b2b;
-  text-align: left
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #2b2b2b;
+    text-align: left
 }
 
 .about .wrapper section:nth-of-type(2) button {
-  width: 150px;
-  height: 45px;
-  background-color: #e7a331;
-  border: none;
-  border-radius: 5px;
-  color: #fff
+    width: 150px;
+    height: 45px;
+    background-color: #e7a331;
+    border: none;
+    border-radius: 5px;
+    color: #fff
 }
 
 .recipes {
-  background-image: url(https://bytebucket.org/consatanos/pen-picture/raw/3c0be7f1f1ea380d9165eb09d5c0f1ec921448f2/f-r/img/recipies-banner-bg.jpg)
+    background-image: url(https://bytebucket.org/consatanos/pen-picture/raw/3c0be7f1f1ea380d9165eb09d5c0f1ec921448f2/f-r/img/recipies-banner-bg.jpg)
 }
 
 .recipes .wrapper {
-  margin: 0 auto;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  color: #2b2b2b
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #2b2b2b
 }
 
 @media (min-width:1024px) {
-  .recipes .wrapper {
-    width: 100%
-  }
+    .recipes .wrapper {
+        width: 100%
+    }
 }
 
 @media (min-width:800px) and (max-width:1023px) {
-  .recipes .wrapper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px
-  }
+    .recipes .wrapper {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px
+    }
 }
 
 .recipes .wrapper section {
-  position: relative;
-  height: 560px
+    position: relative;
+    height: 560px
 }
 
 @media (min-width:800px) and (max-width:1023px) {
-  .recipes .wrapper section {
-    height: auto
-  }
+    .recipes .wrapper section {
+        height: auto
+    }
 }
 
 @media (max-width:799px) {
-  .recipes .wrapper {
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px
-  }
-  .recipes .wrapper section {
-    height: auto
-  }
+    .recipes .wrapper {
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px
+    }
+    .recipes .wrapper section {
+        height: auto
+    }
 }
 
 .recipes .wrapper section div {
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  width: 36%;
-  height: 80%;
-  top: 10%;
-  padding: 0 5%;
-  background-color: #fff
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    width: 36%;
+    height: 80%;
+    top: 10%;
+    padding: 0 5%;
+    background-color: #fff
 }
 
 @media (min-width:800px) and (max-width:1023px) {
-  .recipes .wrapper section div {
-    position: relative;
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    padding: 2% 5% 4%
-  }
-  .recipes .wrapper section img {
-    display: none
-  }
+    .recipes .wrapper section div {
+        position: relative;
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        padding: 2% 5% 4%
+    }
+    .recipes .wrapper section img {
+        display: none
+    }
 }
 
 @media (max-width:799px) {
-  .recipes .wrapper section div {
-    position: relative;
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    padding: 2% 5% 4%
-  }
-  .recipes .wrapper section img {
-    display: none
-  }
+    .recipes .wrapper section div {
+        position: relative;
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        padding: 2% 5% 4%
+    }
+    .recipes .wrapper section img {
+        display: none
+    }
 }
 
 .recipes .wrapper section div h4 {
-  margin: 0;
-  font-family: Pacifico, cursive;
-  font-size: 2.1em;
-  font-weight: 300;
-  color: #2b2b2b;
-  text-align: left
+    margin: 0;
+    font-family: Pacifico, cursive;
+    font-size: 2.1em;
+    font-weight: 300;
+    color: #2b2b2b;
+    text-align: left
 }
 
 .experience .wrapper,
 .experience .wrapper h3,
 .recipes .wrapper section div button,
 .recipes .wrapper section div h3 {
-  font-family: "Times New Roman", Times, Baskerville, Georgia, serif
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif
 }
 
 .recipes .wrapper section div h3 {
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 2.5em;
-  font-weight: 500;
-  color: #2b2b2b;
-  text-align: left
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #2b2b2b;
+    text-align: left
 }
 
 .recipes .wrapper section div button {
-  width: 150px;
-  height: 45px;
-  background-color: #e7a331;
-  border: none;
-  border-radius: 5px;
-  color: #fff
+    width: 150px;
+    height: 45px;
+    background-color: #e7a331;
+    border: none;
+    border-radius: 5px;
+    color: #fff
 }
 
 .recipes .wrapper section img {
-  position: absolute;
-  right: 0;
-  width: 58%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover
+    position: absolute;
+    right: 0;
+    width: 58%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover
 }

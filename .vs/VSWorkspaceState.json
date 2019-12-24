@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\default-pages",
+    "\\src\\app\\dishes",
+    "\\src\\app\\layout"
+  ],
+  "SelectedNode": "\\src\\app\\layout\\layout-routing.module.ts",
+  "PreviewInSolutionExplorer": false
+}

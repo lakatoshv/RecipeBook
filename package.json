@@ -22,7 +22,7 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
-    "@ng-select/ng-select": "^2.20.0",
+    "@ng-select/ng-select": "^2.20.5",
     "@tinymce/tinymce-angular": "^3.3.0",
     "angular-fancybox-plus": "^1.0.3",
     "angular-font-awesome": "^3.1.2",
@@ -30,6 +30,7 @@
     "ngx-bootstrap": "^4.3.0",
     "ngx-modal": "0.0.29",
     "ngx-paginator": "0.0.14",
+    "node-sass": "^4.12.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },

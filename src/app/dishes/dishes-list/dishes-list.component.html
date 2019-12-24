@@ -1,9 +1,11 @@
 <app-menu></app-menu>
-<div class="container-fluid">
-    <div class="row">
-        <div *ngFor="let dish of dishes" class="col-md-3 col-sm-4 col-xs-12 food-list">
-            <div class="food">
-                <img src="{{dish.preview}}" alt="" />
+<!--Gallery-->
+<section class="photos">
+    <h1 class="mb-5 text-center">Усі страви</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 portfolio-item food" *ngFor="let dish of dishes">
+                <img class="card-img-top" src="https://images.pexels.com/photos/7658/food-pizza-box-chalkboard.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
                 <div class="food-images-overlay text-center">
                     <h6 class="clrd-font">{{dish.name}}</h6>
                     <p class="clrd-font food-price"> <i class="fa fa-usd clrd-font" aria-hidden="true"></i> {{dish.price}}</p>
@@ -13,6 +15,8 @@
                     <div class="zoom"></div>
                 </a>
             </div>
+
         </div>
     </div>
-</div>
+</section>
+<!--gallery end-->

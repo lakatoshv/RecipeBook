@@ -1,3 +1,4 @@
+import { AddDishComponent } from './../dishes/add-dish/add-dish.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';

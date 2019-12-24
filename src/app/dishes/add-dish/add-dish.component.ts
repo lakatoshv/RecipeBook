@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Ingradient } from 'src/app/core/models/Ingradient';
+import { IngradientsList } from 'src/app/core/data/IngradientsList';
 
 @Component({
   selector: 'app-add-dish',
@@ -10,30 +12,48 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AddDishComponent implements OnInit {
 
-  public postForm: FormGroup = new DishForm().dishForm;
-  public ingradients = [];
-  public images = [];
-  
+  postForm: FormGroup = new DishForm().dishForm;
+  ingredients: Ingradient[] = [];
+  ingradientList: Ingradient[] = IngradientsList;
+  urls = new Array<string>();
 
-  private _tagLabel: string = "Додати новий тег";
-  private _action: string = "add";
-  private _selectedTag = {
-    value: "",
+  tagLabel: string = 'Додати новий тег';
+  action: string = 'add';    
+  selectedTag = {
+    value: '',
     id: null
-  }
-  
-  public options: Object = {
-    plugins: "media autolink autoresize autoresize charmap code textcolor colorpicker contextmenu directionality emoticons fullscreen help hr image imagetools importcss insertdatetime legacyoutput link lists noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern toc visualblocks visualchars wordcount",
-    menubar: "insert tools view format edit file table",
-    toolbar: "media charmap code forecolor backcolor ltr rtl emoticons fullscreen help image insertdatetime link numlist bullist pagebreak paste preview print save searchreplace table template textcolor toc visualblocks visualchars"
   };
   
+  public options: Object = {
+    plugins: 'media autolink autoresize autoresize charmap code textcolor colorpicker contextmenu directionality emoticons fullscreen help hr image imagetools importcss insertdatetime legacyoutput link lists noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern toc visualblocks visualchars wordcount',
+    menubar: 'insert tools view format edit file table',
+    toolbar: 'media charmap code forecolor backcolor ltr rtl emoticons fullscreen help image insertdatetime link numlist bullist pagebreak paste preview print save searchreplace table template textcolor toc visualblocks visualchars'
+  };
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }
 
   ngOnInit() {
+  }
+
+  detectFiles(event) {
+    this.urls = [];
+    let files = event.target.files;
+    if (files) {
+      for (let file of files) {
+        let reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.urls.push(e.target.result);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+
+  deleteImage(url: string): void{
+    this.urls.splice( this.urls.indexOf(url), 1 );
   }
   /*
   private clearFormData(){
@@ -43,12 +63,11 @@ export class AddDishComponent implements OnInit {
     this._selectedTag.id = null;
 
   }
-
-  private _editTag(tag: string): void {
-    this._selectedTag.value = tag;
-    this._selectedTag.id = this._tags.indexOf(tag);
-    this._action = "edit";
-    this._tagLabel = "Редагувати тег";
+  editIngradient(ingradient: Ingradient): void {
+    this.selectedTag.value = tag;
+    this.selectedTag.id = this.tags.indexOf(tag);
+    this.action = "edit";
+    this.tagLabel = "Редагувати тег";
   }
 
   private _onAddTagAction(tag: any){
@@ -73,14 +92,13 @@ export class AddDishComponent implements OnInit {
     if(action === "edit") this._onEditTagAction(tag);
   }
 
-  private _add(post: any){
-    this.postForm.value.id = 0;
-    this.postForm.value.tags = this._tags.join(", ");
-    this._router.navigate(["/"]);
-  }
-
-  private _backButton(): void{
-    this._router.navigate(["/"]);
+  add(): void {
+    /*this.postForm.value.id = 0;
+    this.postForm.value.tags = this._tags.join(', ');
+    this._router.navigate(['/']);
   }
   */
+  backButton(): void{
+    this._router.navigate(["/"]);
+  }
 }

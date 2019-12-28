@@ -1,3 +1,4 @@
+import { EditDishComponent } from './edit-dish/edit-dish.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DishesListComponent } from './dishes-list/dishes-list.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: ":id",
     component: DishComponent
+  },
+  {
+    path: ":id/edit",
+    component: EditDishComponent
   },
   {
     path: ":type/:id",

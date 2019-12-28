@@ -10,10 +10,11 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { DishDescriptionComponent } from './dish-description/dish-description.component';
 import { ReviewsModule } from '../reviews/reviews.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EditDishComponent } from './edit-dish/edit-dish.component';
 
 
 @NgModule({
-  declarations: [DishesListComponent, DishComponent, AddDishComponent, DishDescriptionComponent ],
+  declarations: [DishesListComponent, DishComponent, AddDishComponent, DishDescriptionComponent, EditDishComponent ],
   imports: [
     CommonModule,
     DishesRoutingModule,

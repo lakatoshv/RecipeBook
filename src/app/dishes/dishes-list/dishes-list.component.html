@@ -3,13 +3,16 @@
 <section class="photos">
     <h1 class="mb-5 text-center">Усі страви</h1>
     <div class="container">
+        <a href="dishes/add" class="btn">Додати страву</a>
         <div class="row">
             <div class="col-lg-4 col-sm-6 portfolio-item food" *ngFor="let dish of dishes">
                 <img class="card-img-top" src="https://images.pexels.com/photos/7658/food-pizza-box-chalkboard.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
                 <div class="food-images-overlay text-center">
                     <h6 class="clrd-font">{{dish.name}}</h6>
                     <p class="clrd-font food-price"> <i class="fa fa-usd clrd-font" aria-hidden="true"></i> {{dish.price}}</p>
-                    <a href="dishes/{{dish.id}}" class="btn btn-primary">Детальніше</a>
+                    <a href="dishes/{{dish.id}}" class="btn btn-primary">Детальніше</a><br>
+                    <a href="dishes/{{dish.id}}/edit" class="btn btn-info"><span class="fa fa-edit"></span></a>
+                    <a (click)="deleteAction(dish.id)" class="btn btn-danger"><span class="fa fa-trash"></span></a>
                 </div>
                 <a class="fancybox" rel="ligthbox" href="http://i.imgur.com/PUeaHfC.png">
                     <div class="zoom"></div>

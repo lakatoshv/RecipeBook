@@ -67,9 +67,9 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <button type="button" class="btn text-white btn-secondary" (click)="backButton()" style="margin-bottom: 50px;">
+                        <a type="button" class="btn text-white btn-secondary" (click)="backButton()" style="margin-bottom: 50px;" href="/dishes/{{dish.id}}">
                           Скасувати
-                        </button>
+                        </a>
                         <input type="submit" name="submit" id="submit" value="Редагувати" class="btn btn-primary pull-right" style="margin-bottom: 50px;">
 
                         <button type="button" class="btn text-white btn-danger pull-right" (click)="delete()" style="margin-bottom: 50px;">

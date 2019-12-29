@@ -15,4 +15,13 @@ export class DishesListComponent implements OnInit {
 
   }
 
+  public deleteAction(dishId: number){
+    //if(this.loggedIn){
+      let index = this.dishes.findIndex(x => x.id === dishId);
+      if (index > -1){
+        this.dishes.splice(index, 1);
+      }
+    //}
+  }
+
 }

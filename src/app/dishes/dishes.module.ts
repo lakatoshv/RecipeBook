@@ -11,6 +11,7 @@ import { DishDescriptionComponent } from './dish-description/dish-description.co
 import { ReviewsModule } from '../reviews/reviews.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EditDishComponent } from './edit-dish/edit-dish.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EditDishComponent } from './edit-dish/edit-dish.component';
     EditorModule,
     ReviewsModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class DishesModule { }

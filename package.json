@@ -29,6 +29,7 @@
     "core-js": "^2.5.4",
     "ngx-bootstrap": "^4.3.0",
     "ngx-modal": "0.0.29",
+    "ngx-pagination": "^5.0.0",
     "ngx-paginator": "0.0.14",
     "node-sass": "^4.12.0",
     "rxjs": "~6.3.3",

@@ -7,6 +7,7 @@ import { ContactsComponent } from '../default-pages/contacts/contacts.component'
 import { GalleryComponent } from '../default-pages/gallery/gallery.component';
 import { AboutComponent } from '../default-pages/about/about.component';
 import { RegistrationComponent } from '../user/registration/registration.component';
+import { AuthorizationComponent } from '../user/authorization/authorization.component';
 
 const routes: Routes = [
   {
@@ -37,12 +38,10 @@ const routes: Routes = [
         path: "registration",
         component: RegistrationComponent
       },
-      /*
       {
         path: "authorization",
         component: AuthorizationComponent
       }
-      */
     ]
   }
 ];

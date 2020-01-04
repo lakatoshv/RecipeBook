@@ -1,3 +1,4 @@
+import { AuthorizationComponent } from './../user/authorization/authorization.component';
 import { UserModule } from './../user/user.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     LayoutComponent, 
     FooterComponent,
     SubscribeFormComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AuthorizationComponent
   ],
   imports: [
     CommonModule,

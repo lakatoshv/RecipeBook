@@ -9,7 +9,7 @@ export class ReviewsListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

@@ -9,7 +9,7 @@ export class SubscribeFormComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

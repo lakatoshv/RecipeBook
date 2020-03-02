@@ -9,6 +9,7 @@ import { SpecialRecipesComponent } from './special-recipes/special-recipes.compo
   imports: [
     CommonModule,
     RecipesRoutingModule
-  ]
+  ],
+  exports: [SpecialRecipesComponent]
 })
 export class RecipesModule { }

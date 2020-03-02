@@ -17,13 +17,13 @@ export class AddDishComponent implements OnInit {
   ingradientList: Ingradient[] = IngradientsList;
   urls = new Array<string>();
 
-  tagLabel: string = 'Додати новий тег';
-  action: string = 'add';    
+  tagLabel = 'Додати новий тег';
+  action = 'add';
   selectedTag = {
     value: '',
     id: null
   };
-  
+
   public options: Object = {
     plugins: 'media autolink autoresize autoresize charmap code textcolor colorpicker contextmenu directionality emoticons fullscreen help hr image imagetools importcss insertdatetime legacyoutput link lists noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern toc visualblocks visualchars wordcount',
     menubar: 'insert tools view format edit file table',
@@ -35,18 +35,18 @@ export class AddDishComponent implements OnInit {
     private _router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  detectFiles(event) {
+  detectFiles(event): void {
     this.urls = [];
-    let files = event.target.files;
+    const files = event.target.files;
     if (files) {
-      for (let file of files) {
-        let reader = new FileReader();
+      for (const file of files) {
+        const reader = new FileReader();
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
@@ -86,19 +86,20 @@ export class AddDishComponent implements OnInit {
     if (index > -1)
       this._tags.splice(index, 1);
   }
-  
+
   private _tagAction(tag: string, action: string): void {
     if(action === "add") this._onAddTagAction(tag);
     if(action === "edit") this._onEditTagAction(tag);
   }
-
+*/
   add(): void {
-    /*this.postForm.value.id = 0;
+    /*
+    this.postForm.value.id = 0;
     this.postForm.value.tags = this._tags.join(', ');
     this._router.navigate(['/']);
+    */
   }
-  */
-  backButton(): void{
-    this._router.navigate(["/"]);
+  backButton(): void {
+    this._router.navigate(['/']);
   }
 }

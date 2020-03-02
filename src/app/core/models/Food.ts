@@ -1,12 +1,14 @@
 import { Ingradient } from "./Ingradient";
 
 export class Food {
-    id: number;
-    name: string;
-    type: string;
-    price: number;
-    preview: string;
-    ingradients: Ingradient[];
-    description: string;
-    images: string[];
+    constructor(
+        public id: number,
+        public name: string,
+        public type: string,
+        public price: number,
+        public preview: string,
+        public ingradients: Ingradient[],
+        public description: string,
+        public images: string[]
+    ) {}
 }

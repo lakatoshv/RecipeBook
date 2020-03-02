@@ -9,14 +9,14 @@ import { FormGroup } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup = new RegistrationForm().registrationForm;
-  
+
   constructor(
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  register(){
+  register(): void {
     if (this.registrationForm.value.password === this.registrationForm.value.confirmPassword) {
     }
   }

@@ -22,8 +22,8 @@ export class EditDishComponent implements OnInit {
   
   public dish: Food;
 
-  tagLabel: string = 'Додати новий тег';
-  action: string = 'add';    
+  tagLabel = 'Додати новий тег';
+  action = 'add';
   selectedTag = {
     value: '',
     id: null
@@ -49,10 +49,10 @@ export class EditDishComponent implements OnInit {
 
   detectFiles(event) {
     this.urls = [];
-    let files = event.target.files;
+    const files = event.target.files;
     if (files) {
-      for (let file of files) {
-        let reader = new FileReader();
+      for (const file of files) {
+        const reader = new FileReader();
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
         }
@@ -61,7 +61,7 @@ export class EditDishComponent implements OnInit {
     }
   }
 
-  deleteImage(url: string): void{
+  deleteImage(url: string): void {
     this.urls.splice( this.urls.indexOf(url), 1 );
   }
   /*
@@ -95,7 +95,7 @@ export class EditDishComponent implements OnInit {
     if (index > -1)
       this._tags.splice(index, 1);
   }
-  
+
   private _tagAction(tag: string, action: string): void {
     if(action === "add") this._onAddTagAction(tag);
     if(action === "edit") this._onEditTagAction(tag);
@@ -108,24 +108,24 @@ export class EditDishComponent implements OnInit {
   }
   */
 
-  edit(){}
-  delete(){}
-  backButton(): void{
-    this._router.navigate(["/"]);
+  edit(): void {}
+  delete(): void {}
+  backButton(): void {
+    this._router.navigate(['/']);
   }
 
-  private _getDish(dishId: number){
+  private _getDish(dishId: number): void{
     this.dish = FoodList[dishId];
     this._setFormData(this.dish);
   }
 
   private _setFormData(dish: Food): void{
-    this.dishForm.get("name").setValue(dish.name);
-    this.dishForm.get("price").setValue(dish.price);
-    this.dishForm.get("preview").setValue(dish.preview);
+    this.dishForm.get('name').setValue(dish.name);
+    this.dishForm.get('price').setValue(dish.price);
+    this.dishForm.get('preview').setValue(dish.preview);
     this.ingredients = dish.ingradients
-    this.dishForm.get("description").setValue(dish.description);
-    this.dishForm.get("type").setValue(dish.type);
+    this.dishForm.get('description').setValue(dish.description);
+    this.dishForm.get('type').setValue(dish.type);
     this.urls = dish.images;
   }
 }

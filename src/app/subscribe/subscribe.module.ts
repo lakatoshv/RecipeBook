@@ -9,6 +9,7 @@ import { SubscribeFormComponent } from './subscribe-form/subscribe-form.componen
   imports: [
     CommonModule,
     SubscribeRoutingModule
-  ]
+  ],
+  exports: [SubscribeFormComponent]
 })
 export class SubscribeModule { }

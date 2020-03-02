@@ -12,43 +12,48 @@ export class UsersService {
 
   constructor(
     private _tokenService: Angular2TokenService,
-    private _globalService: GlobalService) {//this._tokenService.init();
-  }
+    private _globalService: GlobalService) {
+      // this._tokenService.init();
+    }
 
-    /*public registration(model): Observable<any> {
+    /*
+    public registration(model): Observable<any> {
       return this._httpClient.post(HttpClientService.USERS_CONTROLLER, model, null, false, true);
-    }*/
+    }
+    */
 
     public saveUser(user: string): void {
-        if(user){
+        if (user) {
             localStorage.setItem('user', user);
-            this._globalService.resetUserData();   
+            this._globalService.resetUserData();
         }
     }
 
     public login(credentials): string {
       const index = Users.findIndex(item => item.Email === credentials.email || item.Password === credentials.password);
-      if(index === -1)
+      if (index === -1) {
         return null;
+      }
 
-      
-      var user = Users[index];
+      const user = Users[index];
       delete user.Roles;
       delete user.Password;
       return JSON.stringify(user);
 
     }
-    logout() {
-      localStorage.removeItem("user");
+    logout(): void {
+      localStorage.removeItem('user');
     }
 
-    isLoggedIn() {
+    isLoggedIn(): boolean {
         const token: string = localStorage.getItem('user');
-        if(token != null)
+        if (token != null) {
             return true;
+        }
         return false;
     }
-    getToken(){
+
+    getToken(): string {
         return localStorage.getItem('token');
     }
 }

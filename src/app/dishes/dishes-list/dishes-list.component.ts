@@ -14,25 +14,25 @@ export class DishesListComponent implements OnInit {
     pageSize: 3,
     pageNumber: 0,
     totalItems: 0
-  }
+  };
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.pageInfo.totalItems = this.dishes.length;
   }
 
-  public deleteAction(dishId: number){
-    //if(this.loggedIn){
-      let index = this.dishes.findIndex(x => x.id === dishId);
+  public deleteAction(dishId: number): void {
+    // if(this.loggedIn){
+      const index = this.dishes.findIndex(x => x.id === dishId);
       if (index > -1){
         this.dishes.splice(index, 1);
         this.pageInfo.totalItems -= 1;
       }
-    //}
+    // }
   }
 
-  public paginate(page: number){
+  public paginate(page: number): void {
     this.pageInfo.pageNumber = page;
   }
 

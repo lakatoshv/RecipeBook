@@ -1,5 +1,7 @@
-export class Ingradient{
-    id: number;
-    name: string;
-    type: string;
+export class Ingradient {
+    constructor(
+        public id: number,
+        public name: string,
+        public type: string,
+    ) { }
 }

@@ -11,7 +11,7 @@ export class DishDescriptionComponent implements OnInit {
   @Input("dish") dish: Food;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

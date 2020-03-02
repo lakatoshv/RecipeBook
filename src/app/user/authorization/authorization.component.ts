@@ -11,20 +11,21 @@ import { UsersService } from 'src/app/core/services/UsersService';
 })
 export class AuthorizationComponent implements OnInit {
   authorizationForm: FormGroup = new AuthorizationForm().authorizationForm;
-  
+
   constructor(
     private _router: Router,
     private _usersService: UsersService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  authorization(dataForAuthorize){
+  authorization(dataForAuthorize): void {
     if (this.authorizationForm.valid) {
-      var user = this._usersService.login(dataForAuthorize);
-      if(user)
-        this.succesLogin(user)
+      const user = this._usersService.login(dataForAuthorize);
+      if (user) {
+        this.succesLogin(user);
+      }
     }
   }
 
@@ -39,5 +40,5 @@ export class AuthorizationComponent implements OnInit {
         (errorMessage) => {}
     );
     */
-}
+  }
 }

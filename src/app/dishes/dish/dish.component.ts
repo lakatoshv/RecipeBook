@@ -20,16 +20,19 @@ export class DishComponent implements OnInit {
     private _activatedRoute: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._dishId = parseInt(this._globalService.getRouteParam('id', this._activatedRoute));
     this.getDish(this._dishId);
   }
 
-  public selectTab(tab: string): void{
+  public selectTab(tab: string): void {
     this.selectedTab = tab;
-  } 
+  }
 
-  public getDish(dishId: number){
+  public getDish(dishId: number): void {
     this.dish = FoodList[dishId];
+  }
+
+  public deleteAction(id: number): void {
   }
 }

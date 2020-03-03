@@ -9,6 +9,9 @@ export class ReviewsListComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

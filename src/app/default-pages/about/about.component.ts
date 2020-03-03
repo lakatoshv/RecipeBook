@@ -9,6 +9,9 @@ export class AboutComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

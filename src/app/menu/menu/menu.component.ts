@@ -9,6 +9,9 @@ export class MenuComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

@@ -9,6 +9,9 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

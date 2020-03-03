@@ -9,9 +9,15 @@ export class HeaderComponent implements OnInit {
   navbarOpen = false;
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 
+  /**
+   *  Work with hamburger on mobile
+   */
   toggleNavbar(): void {
     this.navbarOpen = !this.navbarOpen;
   }

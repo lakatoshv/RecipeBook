@@ -10,17 +10,31 @@ import { UsersService } from 'src/app/core/services/UsersService';
   styleUrls: ['./authorization.component.scss']
 })
 export class AuthorizationComponent implements OnInit {
+  /**
+   * @param authorizationForm FormGroup
+   */
   authorizationForm: FormGroup = new AuthorizationForm().authorizationForm;
 
+  /**
+   * @param _router Router
+   * @param _usersService UsersService
+   */
   constructor(
     private _router: Router,
     private _usersService: UsersService
   ) { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 
-  authorization(dataForAuthorize): void {
+  /**
+   * Authorization
+   * @param dataForAuthorize any
+   */
+  authorization(dataForAuthorize: any): void {
     if (this.authorizationForm.valid) {
       const user = this._usersService.login(dataForAuthorize);
       if (user) {
@@ -29,6 +43,10 @@ export class AuthorizationComponent implements OnInit {
     }
   }
 
+  /**
+   * Save user data if login is succeed
+   * @param user string
+   */
   public succesLogin(user: string): void {
     this._usersService.saveUser(user);
     /*

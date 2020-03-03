@@ -9,6 +9,9 @@ export class SubscribeFormComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

@@ -9,6 +9,9 @@ export class ContactsComponent implements OnInit {
   public messageForm: null;
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

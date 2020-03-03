@@ -9,6 +9,9 @@ export class SpecialRecipesComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 

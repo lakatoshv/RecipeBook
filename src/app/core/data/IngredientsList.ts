@@ -1,6 +1,9 @@
-import { Ingradient } from '../models/Ingradient';
+import { Ingredient } from '../models/Ingredient';
 
-export const IngradientsList: Ingradient[] = [
+/**
+ * Ingredients list with default data.
+ */
+export const IngredientsList: Ingredient[] = [
     {
         id: 0,
         name: 'Onion',

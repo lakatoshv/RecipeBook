@@ -1,5 +1,8 @@
 import { User } from '../models/user';
 
+/**
+ * Users list with default data.
+ */
 export const Users: User[] = [
   {
     Id: 0,

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Ingradient } from 'src/app/core/models/Ingradient';
-import { IngradientsList } from 'src/app/core/data/IngradientsList';
+import { Ingredient } from 'src/app/core/models/Ingredient';
+import { IngredientsList } from 'src/app/core/data/IngredientsList';
 
 @Component({
   selector: 'app-add-dish',
@@ -11,33 +11,71 @@ import { IngradientsList } from 'src/app/core/data/IngradientsList';
   styleUrls: ['./add-dish.component.scss']
 })
 export class AddDishComponent implements OnInit {
-
+  /**
+   * @param postForm FormGroup
+   */
   postForm: FormGroup = new DishForm().dishForm;
-  ingredients: Ingradient[] = [];
-  ingradientList: Ingradient[] = IngradientsList;
-  urls = new Array<string>();
 
+  /**
+   * @param ingredients Ingredient[]
+   */
+  ingredients: Ingredient[] = [];
+
+  /**
+   * @param ingredientList Ingredient[]
+   */
+  ingredientList: Ingredient[] = IngredientsList;
+
+  /**
+   * @param urls Array<string>
+   */
+  urls: Array<string> = new Array<string>();
+
+  /**
+   * @param tagLabel string
+   */
   tagLabel = 'Додати новий тег';
+  /**
+   * @param action string
+   */
   action = 'add';
-  selectedTag = {
+
+  /**
+   * @param selectedTag Object
+   */
+  selectedTag: Object = {
     value: '',
     id: null
   };
 
+  /**
+   * @param options Object TinyMce options
+   */
   public options: Object = {
     plugins: 'media autolink autoresize autoresize charmap code textcolor colorpicker contextmenu directionality emoticons fullscreen help hr image imagetools importcss insertdatetime legacyoutput link lists noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern toc visualblocks visualchars wordcount',
     menubar: 'insert tools view format edit file table',
     toolbar: 'media charmap code forecolor backcolor ltr rtl emoticons fullscreen help image insertdatetime link numlist bullist pagebreak paste preview print save searchreplace table template textcolor toc visualblocks visualchars'
   };
 
+  /**
+   * @param _activatedRoute ActivatedRoute
+   * @param _router Router
+   */
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 
+  /**
+   * Move uploaded file to local directory and returns url
+   * @param event any
+   */
   detectFiles(event): void {
     this.urls = [];
     const files = event.target.files;
@@ -52,6 +90,10 @@ export class AddDishComponent implements OnInit {
     }
   }
 
+  /**
+   * Delete image
+   * @param url string
+   */
   deleteImage(url: string): void{
     this.urls.splice( this.urls.indexOf(url), 1 );
   }
@@ -92,6 +134,10 @@ export class AddDishComponent implements OnInit {
     if(action === "edit") this._onEditTagAction(tag);
   }
 */
+
+  /**
+   * Add dish
+   */
   add(): void {
     /*
     this.postForm.value.id = 0;

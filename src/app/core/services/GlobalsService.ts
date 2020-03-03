@@ -7,21 +7,55 @@ import { Users } from '../data/Users';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Global service, contains global methods.
+ */
 export class GlobalService {
-
+  /**
+   * @param _jwt JwtHelperService
+   */
   private _jwt = new JwtHelperService();
+
+  /**
+   * @param _isLoadedData boolean
+   */
   public _isLoadedData = false;
+
+  /**
+   * @param _currentUser User
+   */
   public _currentUser: User;
+  /**
+   * @param _avatarUrl string
+   */
   public _avatarUrl: string;
+
+  /**
+   * @param _roles string[]
+   */
   _roles: string[];
   // public _roles: any[];
 
   constructor() { }
-  public getRouteParam(idName: string, activatedRoute: ActivatedRoute): string {
+
+  /**
+   * return property value by URL
+   * @param idName string
+   * @param activatedRoute ActivatedRoute
+   * @returns string|null
+   */
+  public getRouteParam(idName: string, activatedRoute: ActivatedRoute): string|null {
     const snapshot = activatedRoute.snapshot;
     return this._getId(idName, snapshot);
   }
-  private _getId(idName: string, routeObject: ActivatedRouteSnapshot): string {
+
+  /**
+   * return property value by URL
+   * @param idName string
+   * @param activatedRoute ActivatedRoute
+   * @returns string|null
+   */
+  private _getId(idName: string, routeObject: ActivatedRouteSnapshot): string|null {
     if (!routeObject) {
         return null;
     }
@@ -33,12 +67,20 @@ export class GlobalService {
     }
   }
 
-  public initializeData(response): void {
+  /**
+   * Initialize current user data from response.
+   * @param response any
+   * @returns void
+   */
+  public initializeData(response: any): void {
     if (response.currentUser) {
         this._currentUser = response.currentUser;
     }
   }
 
+  /**
+   * Reset user data.
+   */
   public resetUserData(): void {
     const user = localStorage.getItem('user');
     if (user) {
@@ -51,9 +93,15 @@ export class GlobalService {
       this._isLoadedData = true;
     }
   }
+
+  /**
+   * 
+   * @param userString string
+   * @returns User
+   */
   public decode(userString: string): User {
     const user = JSON.parse(userString);
     user.Roles = Users[user.Id];
     return user;
-}
+  }
 }

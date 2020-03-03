@@ -8,8 +8,14 @@ import { FoodList } from 'src/app/core/data/FoodList';
   styleUrls: ['./dishes-list.component.scss']
 })
 export class DishesListComponent implements OnInit {
+  /**
+   * @param dishes Food[]
+   */
   public dishes: Food[] = FoodList;
 
+  /**
+   * @param pageInfo Object
+   */
   public pageInfo: any = {
     pageSize: 3,
     pageNumber: 0,
@@ -18,10 +24,17 @@ export class DishesListComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
     this.pageInfo.totalItems = this.dishes.length;
   }
 
+  /**
+   * Delete dish
+   * @param dishId number
+   */
   public deleteAction(dishId: number): void {
     // if(this.loggedIn){
       const index = this.dishes.findIndex(x => x.id === dishId);
@@ -32,6 +45,10 @@ export class DishesListComponent implements OnInit {
     // }
   }
 
+  /**
+   * Pagination
+   * @param page number
+   */
   public paginate(page: number): void {
     this.pageInfo.pageNumber = page;
   }

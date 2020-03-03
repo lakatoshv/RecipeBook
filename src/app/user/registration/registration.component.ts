@@ -13,9 +13,15 @@ export class RegistrationComponent implements OnInit {
   constructor(
   ) { }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
   }
 
+  /**
+   * Registration
+   */
   register(): void {
     if (this.registrationForm.value.password === this.registrationForm.value.confirmPassword) {
     }

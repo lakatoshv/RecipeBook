@@ -33,6 +33,7 @@ export class UsersService {
   /**
    * Save user to local storage
    * @param user string
+   * @returns void
    */
   public saveUser(user: string): void {
     if (user) {

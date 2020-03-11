@@ -95,7 +95,6 @@ export class GlobalService {
   }
 
   /**
-   * 
    * @param userString string
    * @returns User
    */

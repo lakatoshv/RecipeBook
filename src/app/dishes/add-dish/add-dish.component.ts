@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Ingradient } from 'src/app/core/models/Ingradient';
-import { IngradientsList } from 'src/app/core/data/IngradientsList';
+import { Ingredient } from 'src/app/core/models/Ingredient';
+import { IngredientsList } from 'src/app/core/data/IngredientsList';
 
 @Component({
   selector: 'app-add-dish',
@@ -11,47 +11,89 @@ import { IngradientsList } from 'src/app/core/data/IngradientsList';
   styleUrls: ['./add-dish.component.scss']
 })
 export class AddDishComponent implements OnInit {
-
+  /**
+   * @param postForm FormGroup
+   */
   postForm: FormGroup = new DishForm().dishForm;
-  ingredients: Ingradient[] = [];
-  ingradientList: Ingradient[] = IngradientsList;
-  urls = new Array<string>();
 
-  tagLabel: string = 'Додати новий тег';
-  action: string = 'add';    
-  selectedTag = {
+  /**
+   * @param ingredients Ingredient[]
+   */
+  ingredients: Ingredient[] = [];
+
+  /**
+   * @param ingredientList Ingredient[]
+   */
+  ingredientList: Ingredient[] = IngredientsList;
+
+  /**
+   * @param urls Array<string>
+   */
+  urls: Array<string> = new Array<string>();
+
+  /**
+   * @param tagLabel string
+   */
+  tagLabel = 'Додати новий тег';
+  /**
+   * @param action string
+   */
+  action = 'add';
+
+  /**
+   * @param selectedTag Object
+   */
+  selectedTag: Object = {
     value: '',
     id: null
   };
-  
+
+  /**
+   * @param options Object TinyMce options
+   */
   public options: Object = {
     plugins: 'media autolink autoresize autoresize charmap code textcolor colorpicker contextmenu directionality emoticons fullscreen help hr image imagetools importcss insertdatetime legacyoutput link lists noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern toc visualblocks visualchars wordcount',
     menubar: 'insert tools view format edit file table',
     toolbar: 'media charmap code forecolor backcolor ltr rtl emoticons fullscreen help image insertdatetime link numlist bullist pagebreak paste preview print save searchreplace table template textcolor toc visualblocks visualchars'
   };
 
+  /**
+   * @param _activatedRoute ActivatedRoute
+   * @param _router Router
+   */
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
   }
 
-  detectFiles(event) {
+  /**
+   * Move uploaded file to local directory and returns url
+   * @param event any
+   */
+  detectFiles(event): void {
     this.urls = [];
-    let files = event.target.files;
+    const files = event.target.files;
     if (files) {
-      for (let file of files) {
-        let reader = new FileReader();
+      for (const file of files) {
+        const reader = new FileReader();
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
   }
 
+  /**
+   * Delete image
+   * @param url string
+   */
   deleteImage(url: string): void{
     this.urls.splice( this.urls.indexOf(url), 1 );
   }
@@ -86,19 +128,24 @@ export class AddDishComponent implements OnInit {
     if (index > -1)
       this._tags.splice(index, 1);
   }
-  
+
   private _tagAction(tag: string, action: string): void {
     if(action === "add") this._onAddTagAction(tag);
     if(action === "edit") this._onEditTagAction(tag);
   }
+*/
 
+  /**
+   * Add dish
+   */
   add(): void {
-    /*this.postForm.value.id = 0;
+    /*
+    this.postForm.value.id = 0;
     this.postForm.value.tags = this._tags.join(', ');
     this._router.navigate(['/']);
+    */
   }
-  */
-  backButton(): void{
-    this._router.navigate(["/"]);
+  backButton(): void {
+    this._router.navigate(['/']);
   }
 }

@@ -10,24 +10,43 @@ import { UsersService } from 'src/app/core/services/UsersService';
   styleUrls: ['./authorization.component.scss']
 })
 export class AuthorizationComponent implements OnInit {
+  /**
+   * @param authorizationForm FormGroup
+   */
   authorizationForm: FormGroup = new AuthorizationForm().authorizationForm;
-  
+
+  /**
+   * @param _router Router
+   * @param _usersService UsersService
+   */
   constructor(
     private _router: Router,
     private _usersService: UsersService
   ) { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
   }
 
-  authorization(dataForAuthorize){
+  /**
+   * Authorization
+   * @param dataForAuthorize any
+   */
+  authorization(dataForAuthorize: any): void {
     if (this.authorizationForm.valid) {
-      var user = this._usersService.login(dataForAuthorize);
-      if(user)
-        this.succesLogin(user)
+      const user = this._usersService.login(dataForAuthorize);
+      if (user) {
+        this.succesLogin(user);
+      }
     }
   }
 
+  /**
+   * Save user data if login is succeed
+   * @param user string
+   */
   public succesLogin(user: string): void {
     this._usersService.saveUser(user);
     /*
@@ -39,5 +58,5 @@ export class AuthorizationComponent implements OnInit {
         (errorMessage) => {}
     );
     */
-}
+  }
 }

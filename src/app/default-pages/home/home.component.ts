@@ -9,7 +9,10 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
   }
 
 }

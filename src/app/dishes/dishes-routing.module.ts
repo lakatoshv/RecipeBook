@@ -7,23 +7,23 @@ import { AddDishComponent } from './add-dish/add-dish.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: DishesListComponent
   },
   {
-    path: "add",
+    path: 'add',
     component: AddDishComponent
   },
   {
-    path: ":id",
+    path: ':id',
     component: DishComponent
   },
   {
-    path: ":id/edit",
+    path: ':id/edit',
     component: EditDishComponent
   },
   {
-    path: ":type/:id",
+    path: ':type/:id',
     component: DishComponent
   }
 

@@ -11,35 +11,35 @@ import { AuthorizationComponent } from '../user/authorization/authorization.comp
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: LayoutComponent,
     children: [
       {
-        path: "",
+        path: '',
         component: HomeComponent
       },
       {
-        path: "about",
+        path: 'about',
         component: AboutComponent
       },
       {
-        path: "contacts",
+        path: 'contacts',
         component: ContactsComponent
       },
       {
-        path: "gallery",
+        path: 'gallery',
         component: GalleryComponent
       },
       {
-        path: "dishes",
+        path: 'dishes',
         loadChildren: '../dishes/dishes.module#DishesModule'
       },
       {
-        path: "registration",
+        path: 'registration',
         component: RegistrationComponent
       },
       {
-        path: "authorization",
+        path: 'authorization',
         component: AuthorizationComponent
       }
     ]

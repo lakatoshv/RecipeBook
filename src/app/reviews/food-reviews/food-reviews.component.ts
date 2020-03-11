@@ -9,7 +9,10 @@ export class FoodReviewsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
   }
 
 }

@@ -7,6 +7,6 @@
     "\\src\\app\\dishes",
     "\\src\\app\\layout"
   ],
-  "SelectedNode": "\\src\\app\\layout\\layout-routing.module.ts",
+  "SelectedNode": "\\src\\app\\dishes\\dishes-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }

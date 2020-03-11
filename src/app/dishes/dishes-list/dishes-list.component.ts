@@ -8,31 +8,48 @@ import { FoodList } from 'src/app/core/data/FoodList';
   styleUrls: ['./dishes-list.component.scss']
 })
 export class DishesListComponent implements OnInit {
+  /**
+   * @param dishes Food[]
+   */
   public dishes: Food[] = FoodList;
 
+  /**
+   * @param pageInfo Object
+   */
   public pageInfo: any = {
     pageSize: 3,
     pageNumber: 0,
     totalItems: 0
-  }
+  };
 
   constructor() { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
     this.pageInfo.totalItems = this.dishes.length;
   }
 
-  public deleteAction(dishId: number){
-    //if(this.loggedIn){
-      let index = this.dishes.findIndex(x => x.id === dishId);
+  /**
+   * Delete dish
+   * @param dishId number
+   */
+  public deleteAction(dishId: number): void {
+    // if(this.loggedIn){
+      const index = this.dishes.findIndex(x => x.id === dishId);
       if (index > -1){
         this.dishes.splice(index, 1);
         this.pageInfo.totalItems -= 1;
       }
-    //}
+    // }
   }
 
-  public paginate(page: number){
+  /**
+   * Pagination
+   * @param page number
+   */
+  public paginate(page: number): void {
     this.pageInfo.pageNumber = page;
   }
 

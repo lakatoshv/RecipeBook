@@ -10,26 +10,58 @@ import { FoodList } from 'src/app/core/data/FoodList';
   styleUrls: ['./dish.component.scss']
 })
 export class DishComponent implements OnInit {
+  /**
+   * @param selectedTab string
+   */
   public selectedTab: string = "description";
+
+  /**
+   * @param dish Food
+   */
   public dish: Food;
 
+  /**
+   * @param _dishId number
+   */
   private _dishId: number;
 
+  /**
+   * @param _globalService GlobalService
+   * @param _activatedRoute ActivatedRoute
+   */
   constructor(
     private _globalService: GlobalService,
     private _activatedRoute: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
     this._dishId = parseInt(this._globalService.getRouteParam('id', this._activatedRoute));
     this.getDish(this._dishId);
   }
 
-  public selectTab(tab: string): void{
+  /**
+   * Change tab content
+   * @param tab string
+   */
+  public selectTab(tab: string): void {
     this.selectedTab = tab;
-  } 
+  }
 
-  public getDish(dishId: number){
+  /**
+   * Get dish
+   * @param dishId number
+   */
+  public getDish(dishId: number): void {
     this.dish = FoodList[dishId];
+  }
+
+  /**
+   * Delete dish
+   * @param id number
+   */
+  public deleteAction(id: number): void {
   }
 }

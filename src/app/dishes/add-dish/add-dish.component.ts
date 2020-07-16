@@ -1,3 +1,4 @@
+import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
@@ -60,10 +61,12 @@ export class AddDishComponent implements OnInit {
   /**
    * @param _activatedRoute ActivatedRoute
    * @param _router Router
+   * @param _dishesService DishesService
    */
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _dishesService: DishesService
   ) { }
 
   /**

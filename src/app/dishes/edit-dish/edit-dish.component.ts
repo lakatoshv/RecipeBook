@@ -1,3 +1,4 @@
+import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
@@ -75,11 +76,13 @@ export class EditDishComponent implements OnInit {
    * @param _activatedRoute ActivatedRoute
    * @param _router Router
    * @param _globalService GlobalService
+   * @param _dishesService DishesService
    */
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _globalService: GlobalService
+    private _globalService: GlobalService,
+    private _dishesService: DishesService
   ) { }
 
   /**
@@ -102,7 +105,7 @@ export class EditDishComponent implements OnInit {
         const reader = new FileReader();
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
@@ -180,8 +183,8 @@ export class EditDishComponent implements OnInit {
    * Get dish
    * @param dishId number
    */
-  private _getDish(dishId: number): void{
-    this.dish = FoodList[dishId];
+  private _getDish(dishId: number): void {
+    this.dish = this._dishesService.getDish(dishId);
     this._setFormData(this.dish);
   }
 

@@ -1,3 +1,4 @@
+import { DishesService } from './core/services/dishes.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -20,7 +21,7 @@ import { A2tUiModule, Angular2TokenService } from 'angular2-token';
     A2tUiModule,
     HttpModule,
   ],
-  providers:    [ Angular2TokenService ],
+  providers:    [ Angular2TokenService, DishesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

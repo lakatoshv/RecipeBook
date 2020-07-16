@@ -1,3 +1,4 @@
+import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from 'src/app/core/services/GlobalsService';
 import { ActivatedRoute } from '@angular/router';
@@ -28,10 +29,12 @@ export class DishComponent implements OnInit {
   /**
    * @param _globalService GlobalService
    * @param _activatedRoute ActivatedRoute
+   * @param _dishesService DishesService
    */
   constructor(
     private _globalService: GlobalService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _dishesService: DishesService
   ) { }
 
   /**
@@ -55,7 +58,7 @@ export class DishComponent implements OnInit {
    * @param dishId number
    */
   public getDish(dishId: number): void {
-    this.dish = FoodList[dishId];
+    this.dish = this._dishesService.getDish(dishId);
   }
 
   /**

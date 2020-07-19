@@ -1,3 +1,5 @@
+import { Food } from './../../core/models/Food';
+import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
@@ -12,9 +14,9 @@ import { IngredientsList } from 'src/app/core/data/IngredientsList';
 })
 export class AddDishComponent implements OnInit {
   /**
-   * @param postForm FormGroup
+   * @param dishForm FormGroup
    */
-  postForm: FormGroup = new DishForm().dishForm;
+  dishForm: FormGroup = new DishForm().dishForm;
 
   /**
    * @param ingredients Ingredient[]
@@ -60,10 +62,12 @@ export class AddDishComponent implements OnInit {
   /**
    * @param _activatedRoute ActivatedRoute
    * @param _router Router
+   * @param _dishesService DishesService
    */
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _dishesService: DishesService
   ) { }
 
   /**
@@ -75,6 +79,7 @@ export class AddDishComponent implements OnInit {
   /**
    * Move uploaded file to local directory and returns url
    * @param event any
+   * @returns void
    */
   detectFiles(event): void {
     this.urls = [];
@@ -93,6 +98,7 @@ export class AddDishComponent implements OnInit {
   /**
    * Delete image
    * @param url string
+   * @returns void
    */
   deleteImage(url: string): void{
     this.urls.splice( this.urls.indexOf(url), 1 );
@@ -137,15 +143,19 @@ export class AddDishComponent implements OnInit {
 
   /**
    * Add dish
+   * @param newDish Food
+   * @returns void
    */
-  add(): void {
-    /*
-    this.postForm.value.id = 0;
-    this.postForm.value.tags = this._tags.join(', ');
-    this._router.navigate(['/']);
-    */
+  add(newDish: Food): void {
+    this._dishesService.addDish(newDish);
+    this._router.navigate(['/dishes']);
   }
+
+  /**
+   * Back button
+   * @returns void
+   */
   backButton(): void {
-    this._router.navigate(['/']);
+    this._router.navigate(['/dishes']);
   }
 }

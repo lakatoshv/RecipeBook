@@ -1,3 +1,4 @@
+import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
@@ -75,11 +76,13 @@ export class EditDishComponent implements OnInit {
    * @param _activatedRoute ActivatedRoute
    * @param _router Router
    * @param _globalService GlobalService
+   * @param _dishesService DishesService
    */
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _globalService: GlobalService
+    private _globalService: GlobalService,
+    private _dishesService: DishesService
   ) { }
 
   /**
@@ -93,8 +96,9 @@ export class EditDishComponent implements OnInit {
   /**
    * Move uploaded file to local directory and returns url
    * @param event any
+   * @returns void
    */
-  detectFiles(event) {
+  detectFiles(event): void {
     this.urls = [];
     const files = event.target.files;
     if (files) {
@@ -102,7 +106,7 @@ export class EditDishComponent implements OnInit {
         const reader = new FileReader();
         reader.onload = (e: any) => {
           this.urls.push(e.target.result);
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
@@ -111,6 +115,7 @@ export class EditDishComponent implements OnInit {
   /**
    * Delete image
    * @param url string
+   * @returns void
    */
   deleteImage(url: string): void {
     this.urls.splice( this.urls.indexOf(url), 1 );
@@ -161,41 +166,55 @@ export class EditDishComponent implements OnInit {
 
   /**
    * Edit dist
+   * @param dish Food
+   * @returns void
    */
-  edit(): void {}
+  edit(dish: Food): void {
+    dish.id = this._dishId;
+    this._dishesService.editDish(this._dishId, dish);
+    this._router.navigate(['/dishes']);
+  }
 
   /**
    * Delete dish
+   * @returns void
    */
-  delete(): void {}
+  delete(): void {
+    this._dishesService.deleteDish(this._dishId);
+    this._router.navigate(['/dishes']);
+  }
 
   /**
    * Back button
+   * @returns void
    */
   backButton(): void {
-    this._router.navigate(['/']);
+    this._router.navigate(['/dishes']);
   }
 
   /**
    * Get dish
    * @param dishId number
+   * @returns void
    */
-  private _getDish(dishId: number): void{
-    this.dish = FoodList[dishId];
+  private _getDish(dishId: number): void {
+    this.dish = this._dishesService.getDish(dishId);
     this._setFormData(this.dish);
   }
 
   /**
    * Set form data
    * @param dish Food
+   * @returns void
    */
-  private _setFormData(dish: Food): void{
+  private _setFormData(dish: Food): void {
     this.dishForm.get('name').setValue(dish.name);
     this.dishForm.get('price').setValue(dish.price);
     this.dishForm.get('preview').setValue(dish.preview);
     this.ingredients = dish.ingredients;
     this.dishForm.get('description').setValue(dish.description);
     this.dishForm.get('type').setValue(dish.type);
+    this.dishForm.get('price').setValue(dish.price);
     this.urls = dish.images;
   }
 }

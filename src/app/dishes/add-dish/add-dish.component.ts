@@ -79,6 +79,7 @@ export class AddDishComponent implements OnInit {
   /**
    * Move uploaded file to local directory and returns url
    * @param event any
+   * @returns void
    */
   detectFiles(event): void {
     this.urls = [];
@@ -97,6 +98,7 @@ export class AddDishComponent implements OnInit {
   /**
    * Delete image
    * @param url string
+   * @returns void
    */
   deleteImage(url: string): void{
     this.urls.splice( this.urls.indexOf(url), 1 );
@@ -141,11 +143,18 @@ export class AddDishComponent implements OnInit {
 
   /**
    * Add dish
+   * @param newDish Food
+   * @returns void
    */
   add(newDish: Food): void {
     this._dishesService.addDish(newDish);
     this._router.navigate(['/dishes']);
   }
+
+  /**
+   * Back button
+   * @returns void
+   */
   backButton(): void {
     this._router.navigate(['/dishes']);
   }

@@ -80,6 +80,7 @@ export class DishesService {
     if (this._dishes.findIndex(x => x.name === dish.name) > -1) {
       return;
     }
+    dish.id = this._dishes.length + 1;
     this._dishes.unshift(dish);
     this.dishChanged.emit(true);
   }

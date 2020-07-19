@@ -1,3 +1,4 @@
+import { Food } from './../../core/models/Food';
 import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -13,9 +14,9 @@ import { IngredientsList } from 'src/app/core/data/IngredientsList';
 })
 export class AddDishComponent implements OnInit {
   /**
-   * @param postForm FormGroup
+   * @param dishForm FormGroup
    */
-  postForm: FormGroup = new DishForm().dishForm;
+  dishForm: FormGroup = new DishForm().dishForm;
 
   /**
    * @param ingredients Ingredient[]
@@ -141,14 +142,11 @@ export class AddDishComponent implements OnInit {
   /**
    * Add dish
    */
-  add(): void {
-    /*
-    this.postForm.value.id = 0;
-    this.postForm.value.tags = this._tags.join(', ');
-    this._router.navigate(['/']);
-    */
+  add(newDish: Food): void {
+    this._dishesService.addDish(newDish);
+    this._router.navigate(['/dishes']);
   }
   backButton(): void {
-    this._router.navigate(['/']);
+    this._router.navigate(['/dishes']);
   }
 }

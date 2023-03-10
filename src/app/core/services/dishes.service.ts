@@ -25,11 +25,11 @@ export class DishesService {
    * @param searchFilter string[]
    * @returns Food[]
    */
-  public getDishes(search: string = null, searchFilter: string[] = []): Food[] {
+  public getDishes(search: string | undefined, searchFilter: string[] = []): Food[] {
     let dishes = this._dishes;
     searchFilter = searchFilter.filter(x => x !== null);
 
-    if (search !== null) {
+    if (search !== undefined) {
       dishes = dishes.filter(dish =>
         dish.name.includes(search)
         || dish.description.includes(search)
@@ -59,7 +59,7 @@ export class DishesService {
    * @returns Food[]
    */
   public sort(sort: string): Food[] {
-    return sortBy(Object.values(this.getDishes()), [sort]);
+    return sortBy(Object.values(this.getDishes(sort)), [sort]);
   }
 
   /**

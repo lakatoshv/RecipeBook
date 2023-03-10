@@ -12,10 +12,11 @@ import { ReviewsModule } from '../reviews/reviews.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EditDishComponent } from './edit-dish/edit-dish.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DishPreviewComponent } from './dish-preview/dish-preview.component';
 
 
 @NgModule({
-  declarations: [DishesListComponent, DishComponent, AddDishComponent, DishDescriptionComponent, EditDishComponent ],
+  declarations: [DishesListComponent, DishComponent, AddDishComponent, DishDescriptionComponent, EditDishComponent, DishPreviewComponent ],
   imports: [
     CommonModule,
     DishesRoutingModule,
@@ -26,6 +27,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgSelectModule,
     FormsModule,
     NgxPaginationModule
-  ]
+  ],
 })
 export class DishesModule { }

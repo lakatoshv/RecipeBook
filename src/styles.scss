@@ -798,3 +798,11 @@ section .section-title {
     font-family: arial;
     color: #fff;
 }
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}

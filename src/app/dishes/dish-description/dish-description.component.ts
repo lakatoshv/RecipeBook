@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./dish-description.component.scss']
 })
 export class DishDescriptionComponent implements OnInit {
-  @Input("dish") dish: Food;
+  @Input("dish") dish: Food | undefined;
   constructor() { }
 
   /**

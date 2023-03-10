@@ -4,21 +4,38 @@
     <h1 class="mb-5 text-center">Усі страви</h1>
     <div class="container">
         <a href="dishes/add" class="btn">Додати страву</a>
+        
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <form #f="ngForm" [formGroup]="searchForm" (ngSubmit)="search(f.value.search)">
+          <div class="form-row">
+            <div class="col-12 col-md-9 mb-2 mb-md-0">
+              <input type="search" class="form-control myform form-control-lg" formControlName="search" placeholder="Enter something to filter dishes...">
+            </div>
+            <div class="col-12 col-md-3">
+              <button type="submit" class="btn mybtn btn-block btn-lg btn-success"><i class="fa fa-search"></i> Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br>
+        
         <div class="row">
             <div class="col-lg-4 col-sm-6 portfolio-item food" *ngFor="let dish of dishes | paginate: { itemsPerPage: pageInfo.pageSize,
                 currentPage: pageInfo.pageNumber,
                 totalItems: pageInfo.totalItems }">
-                <img class="card-img-top" src="https://images.pexels.com/photos/7658/food-pizza-box-chalkboard.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-                <div class="food-images-overlay text-center">
-                    <h6 class="clrd-font">{{dish.name}}</h6>
-                    <p class="clrd-font food-price"> <i class="fa fa-usd clrd-font" aria-hidden="true"></i> {{dish.price}}</p>
-                    <a href="dishes/{{dish.id}}" class="btn btn-primary">Детальніше</a><br>
-                    <a href="dishes/{{dish.id}}/edit" class="btn btn-info"><span class="fa fa-edit"></span></a>
-                    <a (click)="deleteAction(dish.id)" class="btn btn-danger"><span class="fa fa-trash"></span></a>
-                </div>
-                <a class="fancybox" rel="ligthbox" href="http://i.imgur.com/PUeaHfC.png">
-                    <div class="zoom"></div>
-                </a>
+                <app-dish-preview #dishPreview>
+                    <img class="card-img-top" src="https://images.pexels.com/photos/7658/food-pizza-box-chalkboard.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+                    <div class="food-images-overlay text-center">
+                        <h6 class="clrd-font">{{dish.name}}</h6>
+                        <p class="clrd-font food-price"> <i class="fa fa-usd clrd-font" aria-hidden="true"></i> {{dish.price}}</p>
+                        <a href="dishes/{{dish.id}}" class="btn btn-primary">Детальніше</a><br>
+                        <a href="dishes/{{dish.id}}/edit" class="btn btn-info"><span class="fa fa-edit"></span></a>
+                        <a (click)="deleteAction(dish.id)" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                    </div>
+                    <a class="fancybox" rel="ligthbox" href="http://i.imgur.com/PUeaHfC.png">
+                        <div class="zoom"></div>
+                    </a>
+                </app-dish-preview>
             </div>
             <br>
             <div class="clearfix">

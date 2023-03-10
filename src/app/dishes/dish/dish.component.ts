@@ -1,5 +1,5 @@
 import { DishesService } from './../../core/services/dishes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgIterable, OnInit } from '@angular/core';
 import { GlobalService } from 'src/app/core/services/GlobalsService';
 import { ActivatedRoute } from '@angular/router';
 import { Food } from 'src/app/core/models/Food';
@@ -17,14 +17,15 @@ export class DishComponent implements OnInit {
   public selectedTab: string = "description";
 
   /**
-   * @param dish Food
+   * @param dish Food | undefined
    */
-  public dish: Food;
+  public dish: Food | undefined;
 
   /**
-   * @param _dishId number
+   * @param _dishId number | undefined
    */
-  private _dishId: number;
+  private _dishId: number | undefined;
+index: (string[]&NgIterable<string>)|null|undefined;
 
   /**
    * @param _globalService GlobalService
@@ -41,7 +42,7 @@ export class DishComponent implements OnInit {
    * @inheritdoc
    */
   ngOnInit(): void {
-    this._dishId = parseInt(this._globalService.getRouteParam('id', this._activatedRoute));
+    this._dishId = parseInt(this._globalService.getRouteParam('id', this._activatedRoute) ?? '', undefined);
     this.getDish(this._dishId);
   }
 

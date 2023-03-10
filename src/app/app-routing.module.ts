@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LayoutModule } from './layout/layout.module';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './layout/layout.module#LayoutModule'
+    loadChildren: () => LayoutModule
   }
 ];
 

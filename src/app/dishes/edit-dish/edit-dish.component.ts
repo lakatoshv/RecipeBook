@@ -1,5 +1,5 @@
 import { DishesService } from './../../core/services/dishes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgIterable, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -36,9 +36,9 @@ export class EditDishComponent implements OnInit {
   urls: Array<string> = new Array<string>();
 
   /**
-   * @param dish Food
+   * @param dish Food | undefined
    */
-  public dish: Food;
+  public dish: Food | undefined;
 
   /**
    * @param tagLabel string
@@ -70,7 +70,8 @@ export class EditDishComponent implements OnInit {
   /**
    * @param _dishId number
    */
-  private _dishId: number;
+  private _dishId: number | undefined;
+index: (string[]&NgIterable<string>)|null|undefined;
 
   /**
    * @param _activatedRoute ActivatedRoute
@@ -82,14 +83,15 @@ export class EditDishComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
     private _globalService: GlobalService,
-    private _dishesService: DishesService
+    private _dishesService: DishesService,
+    // private _route: Route
   ) { }
 
   /**
    * @inheritdoc
    */
   ngOnInit() {
-    this._dishId = parseInt(this._globalService.getRouteParam('id', this._activatedRoute));
+    this._dishId = parseInt(this._globalService.getRouteParam('id', this._activatedRoute) ?? '', undefined);
     this._getDish(this._dishId);
   }
 
@@ -98,7 +100,7 @@ export class EditDishComponent implements OnInit {
    * @param event any
    * @returns void
    */
-  detectFiles(event): void {
+  detectFiles(event: any): void {
     this.urls = [];
     const files = event.target.files;
     if (files) {
@@ -160,7 +162,7 @@ export class EditDishComponent implements OnInit {
   add(): void {
     /*this.postForm.value.id = 0;
     this.postForm.value.tags = this._tags.join(', ');
-    this._router.navigate(['/']);
+    this._router.navigate(['/'], { relativeTo: this._route });
   }
   */
 
@@ -170,9 +172,12 @@ export class EditDishComponent implements OnInit {
    * @returns void
    */
   edit(dish: Food): void {
-    dish.id = this._dishId;
-    this._dishesService.editDish(this._dishId, dish);
-    this._router.navigate(['/dishes']);
+    if(this._dishId) {
+      dish.id = this._dishId;
+      this._dishesService.editDish(this._dishId, dish);
+      this._router.navigate(['/dishes']/*, { relativeTo: this._route } */);
+    }
+    
   }
 
   /**
@@ -180,8 +185,10 @@ export class EditDishComponent implements OnInit {
    * @returns void
    */
   delete(): void {
-    this._dishesService.deleteDish(this._dishId);
-    this._router.navigate(['/dishes']);
+    if(this._dishId) {
+      this._dishesService.deleteDish(this._dishId);
+      this._router.navigate(['/dishes'/*, { relativeTo: this._route } */]);
+    }
   }
 
   /**
@@ -189,7 +196,7 @@ export class EditDishComponent implements OnInit {
    * @returns void
    */
   backButton(): void {
-    this._router.navigate(['/dishes']);
+    this._router.navigate(['/dishes'/*, { relativeTo: this._route } */]);
   }
 
   /**
@@ -208,13 +215,13 @@ export class EditDishComponent implements OnInit {
    * @returns void
    */
   private _setFormData(dish: Food): void {
-    this.dishForm.get('name').setValue(dish.name);
-    this.dishForm.get('price').setValue(dish.price);
-    this.dishForm.get('preview').setValue(dish.preview);
+    this.dishForm.get('name')?.setValue(dish.name);
+    this.dishForm.get('price')?.setValue(dish.price);
+    this.dishForm.get('preview')?.setValue(dish.preview);
     this.ingredients = dish.ingredients;
-    this.dishForm.get('description').setValue(dish.description);
-    this.dishForm.get('type').setValue(dish.type);
-    this.dishForm.get('price').setValue(dish.price);
+    this.dishForm.get('description')?.setValue(dish.description);
+    this.dishForm.get('type')?.setValue(dish.type);
+    this.dishForm.get('price')?.setValue(dish.price);
     this.urls = dish.images;
   }
 }

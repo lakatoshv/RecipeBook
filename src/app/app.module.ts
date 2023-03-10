@@ -6,8 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { HttpModule } from '@angular/http';
-import { A2tUiModule, Angular2TokenService } from 'angular2-token';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,10 +17,9 @@ import { A2tUiModule, Angular2TokenService } from 'angular2-token';
     AppRoutingModule,
     EditorModule,
     NgSelectModule,
-    A2tUiModule,
-    HttpModule,
+    HttpClientModule,
   ],
-  providers:    [ Angular2TokenService, DishesService ],
+  providers:    [ DishesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

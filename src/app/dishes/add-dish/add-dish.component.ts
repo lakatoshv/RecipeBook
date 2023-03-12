@@ -1,6 +1,6 @@
 import { Food } from './../../core/models/Food';
 import { DishesService } from './../../core/services/dishes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgIterable, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { DishForm } from 'src/app/core/form/DishForm';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -58,6 +58,7 @@ export class AddDishComponent implements OnInit {
     menubar: 'insert tools view format edit file table',
     toolbar: 'media charmap code forecolor backcolor ltr rtl emoticons fullscreen help image insertdatetime link numlist bullist pagebreak paste preview print save searchreplace table template textcolor toc visualblocks visualchars'
   };
+index: (string[]&NgIterable<string>)|null|undefined;
 
   /**
    * @param _activatedRoute ActivatedRoute
@@ -81,7 +82,7 @@ export class AddDishComponent implements OnInit {
    * @param event any
    * @returns void
    */
-  detectFiles(event): void {
+  detectFiles(event: any): void {
     this.urls = [];
     const files = event.target.files;
     if (files) {
@@ -148,7 +149,7 @@ export class AddDishComponent implements OnInit {
    */
   add(newDish: Food): void {
     this._dishesService.addDish(newDish);
-    this._router.navigate(['/dishes']);
+    this._router.navigate(['/dishes'/*, { relativeTo: this._route } */]);
   }
 
   /**
@@ -156,6 +157,6 @@ export class AddDishComponent implements OnInit {
    * @returns void
    */
   backButton(): void {
-    this._router.navigate(['/dishes']);
+    this._router.navigate(['/dishes'/*, { relativeTo: this._route } */]);
   }
 }

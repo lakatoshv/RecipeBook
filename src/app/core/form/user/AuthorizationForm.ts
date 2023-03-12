@@ -1,4 +1,4 @@
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 /**
  * Authorization form.
@@ -8,10 +8,20 @@ export class AuthorizationForm {
         /**
          * Email input field.
          */
-        email: new FormControl(''),
+        email: new FormControl('', [
+            Validators.email,
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(255),
+        ]),
+
         /**
          * Password input field.
          */
-        password: new FormControl('')
+        password: new FormControl(null, [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(255),
+        ])
     });
 }

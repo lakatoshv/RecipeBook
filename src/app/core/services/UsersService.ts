@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Angular2TokenService } from 'angular2-token';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { GlobalService } from './GlobalsService';
 import { Users } from '../data/Users';
@@ -14,11 +13,9 @@ export class UsersService {
   private _jwt = new JwtHelperService();
 
   /**
-   * @param _tokenService Angular2TokenService
    * @param _globalService GlobalService
    */
   constructor(
-    private _tokenService: Angular2TokenService,
     private _globalService: GlobalService
   ) {
       // this._tokenService.init();
@@ -45,16 +42,16 @@ export class UsersService {
   /**
    * Login method
    * @param credentials any
-   * @returns string|null
+   * @returns string|undefined
    */
-  public login(credentials): string {
+  public login(credentials: any): string | undefined {
     const index = Users.findIndex(item => item.Email === credentials.email || item.Password === credentials.password);
     if (index === -1) {
-      return null;
+      return undefined;
     }
 
     const user = Users[index];
-    delete user.Roles;
+    user.Roles = [];
     delete user.Password;
     return JSON.stringify(user);
   }
@@ -71,7 +68,7 @@ export class UsersService {
    * @returns boolean
    */
   isLoggedIn(): boolean {
-    const token: string = localStorage.getItem('user');
+    const token: string | null = localStorage.getItem('user');
     if (token != null) {
       return true;
     }
@@ -81,7 +78,7 @@ export class UsersService {
   /**
    * Get token from local storage
    */
-  getToken(): string {
+  getToken(): string | null {
     return localStorage.getItem('token');
   }
 }

@@ -23,7 +23,9 @@ export class RegistrationComponent implements OnInit {
    * Registration
    */
   register(): void {
-    if (this.registrationForm.value.password === this.registrationForm.value.confirmPassword) {
+    if (
+      this.registrationForm.valid &&
+      this.registrationForm.value.password === this.registrationForm.value.confirmPassword) {
     }
   }
 

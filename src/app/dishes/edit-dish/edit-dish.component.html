@@ -69,13 +69,13 @@
                       Інградієнти:
                   </label>
 
-                    <ng-select [items]="ingredientList" bindLabel="name" placeholder="Виберіть інградієнти" formControlName="ingredients" multiple="true" [(ngModel)]="ingredients">
+                    <ng-select [items]="ingredientList" bindLabel="name" placeholder="Виберіть інградієнти" formControlName="ingredients" [multiple]="true" [(ngModel)]="ingredients">
                     </ng-select>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <a type="button" class="btn text-white btn-secondary" (click)="backButton()" style="margin-bottom: 50px;" href="/dishes/{{dish.id}}">
+                        <a type="button" class="btn text-white btn-secondary" (click)="backButton()" style="margin-bottom: 50px;" href="/dishes/{{dish?.id}}">
                           Скасувати
                         </a>
                         <input type="submit" name="submit" id="submit" value="Редагувати" class="btn btn-primary pull-right" style="margin-bottom: 50px;">

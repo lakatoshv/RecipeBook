@@ -69,7 +69,7 @@
                         Інградієнти:
                     </label>
 
-                    <ng-select [items]="ingredientList" bindLabel="name" placeholder="Виберіть інградієнти" formControlName="ingredients" multiple="true" [(ngModel)]="ingredients">
+                    <ng-select [items]="ingredientList" bindLabel="name" placeholder="Виберіть інградієнти" formControlName="ingredients" [multiple]="true" [(ngModel)]="ingredients">
                     </ng-select>
                 </div>
 

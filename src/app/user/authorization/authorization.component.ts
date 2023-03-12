@@ -38,7 +38,7 @@ export class AuthorizationComponent implements OnInit {
     if (this.authorizationForm.valid) {
       const user = this._usersService.login(dataForAuthorize);
       if (user) {
-        this.succesLogin(user);
+        this.successLogin(user);
       }
     }
   }
@@ -47,13 +47,13 @@ export class AuthorizationComponent implements OnInit {
    * Save user data if login is succeed
    * @param user string
    */
-  public succesLogin(user: string): void {
+  public successLogin(user: string): void {
     this._usersService.saveUser(user);
     /*
     const initializeSubscription = this._accountService.initialize(this._globalService._currentUser.Id).subscribe(
         (initializationData) => {
             this._globalService.initializeData(initializationData);
-            this._router.navigate(['/']);
+            this._router.navigate(['/'], { relativeTo: this._route });
         },
         (errorMessage) => {}
     );

@@ -2,6 +2,8 @@ import { DishesService } from './../../core/services/dishes.service';
 import { Component, OnInit, ContentChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { Food } from 'src/app/core/models/Food';
 import { FoodList } from 'src/app/core/data/FoodList';
+import { SearchForm } from 'src/app/core/form/SearchForm';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dishes-list',
@@ -10,11 +12,16 @@ import { FoodList } from 'src/app/core/data/FoodList';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class DishesListComponent implements OnInit {
-  @ContentChild('dishPreview') dishPreviewRef: ElementRef;
+  @ContentChild('dishPreview') dishPreviewRef: ElementRef | undefined;
   /**
    * @param dishes Food[]
    */
   public dishes: Food[] = FoodList;
+
+  /**
+   * @param searchForm FormGroup
+   */
+  public searchForm: FormGroup = new SearchForm().searchForm;
 
   /**
    * @param pageInfo Object
@@ -35,11 +42,11 @@ export class DishesListComponent implements OnInit {
    */
   ngOnInit(): void {
     // this.dishPreviewRef.nativeElement;
-    this.dishes = this._dishesService.getDishes();
+    this.dishes = this._dishesService.getDishes(undefined);
     this.pageInfo.totalItems = this.dishes.length;
     this._dishesService.dishChanged.subscribe(
       () => {
-        this.dishes = this._dishesService.getDishes();
+        this.dishes = this._dishesService.getDishes(undefined);
         this.pageInfo.totalItems = this.dishes.length;
       }
     );
@@ -59,6 +66,15 @@ export class DishesListComponent implements OnInit {
    */
   public paginate(page: number): void {
     this.pageInfo.pageNumber = page;
+  }
+
+  /**
+   * Search post by Title
+   * @param search string
+   * @returns void
+   */
+  public search(search: string): void {
+    this.dishes = this._dishesService.getDishes(search, []);
   }
 
 }
